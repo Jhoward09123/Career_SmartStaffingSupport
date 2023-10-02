@@ -9,12 +9,21 @@
             <div class="Admin_login">Admin Login</div>
 
             <label class="user_label"> User </label>
-            <div >
+            <div>
               <input class="input_User" type="text" />
             </div>
             <label class="user_password"> Password </label>
             <div>
               <input class="input_Password" type="password" />
+            </div>
+
+            <div class="flex d-flex justify-content-center pt-5 gap-4">
+              <div class="">
+                <button class="Login_btn">Login</button>
+              </div>
+              <div class="">
+                <button class="signUp_btn">Sign Up</button>
+              </div>
             </div>
           </div>
         </div>
