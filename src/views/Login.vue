@@ -1,0 +1,24 @@
+<script setup></script>
+
+<template>
+  <main class="">
+    <div class="padding_body">
+      <div class="login_outside flex d-flex justify-content-center">
+        <div class="login_border border border-dark">
+          <div class="pad_top_log">
+            <div class="Admin_login">Admin Login</div>
+
+            <label class="user_label"> User </label>
+            <div >
+              <input class="input_User" type="text" />
+            </div>
+            <label class="user_password"> Password </label>
+            <div>
+              <input class="input_Password" type="password" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</template>
