@@ -39,7 +39,10 @@ import { RouterView } from 'vue-router';
         </div>
 
         <div>
-          <img :src="userImage" alt="User Image" />
+          
+          <RouterLink class="nav-link active text-white normal_font" to="/login"
+                ><img :src="userImage" alt="User Image" /></RouterLink
+              >
         </div>
       </div>
     </div>

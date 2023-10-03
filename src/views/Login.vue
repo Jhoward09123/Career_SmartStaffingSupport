@@ -1,4 +1,6 @@
-<script setup></script>
+
+<script setup>
+</script>
 
 <template>
   <main class="">
@@ -19,10 +21,21 @@
 
             <div class="flex d-flex justify-content-center pt-5 gap-4">
               <div class="">
+                <RouterLink
+                  class="nav-link active text-white normal_font"
+                  to="/DashBoard"
+                >
                 <button class="Login_btn">Login</button>
+              </RouterLink>
+               
               </div>
               <div class="">
-                <button class="signUp_btn">Sign Up</button>
+                <RouterLink
+                  class="nav-link active text-white normal_font"
+                  to="#"
+                >
+                  <button class="signUp_btn">Sign Up</button>
+                </RouterLink>
               </div>
             </div>
           </div>
