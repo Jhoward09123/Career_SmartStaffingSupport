@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-
 </script>
 
 <template>
@@ -12,27 +11,27 @@ import { RouterLink, RouterView } from "vue-router";
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Dashboard</span></RouterLink
           >
-          <a href="#" class="nav_link">
-            <i class="bx bx-user nav_icon"></i>
-            <span class="nav_name">Applicants</span>
-          </a>
-          <a href="#" class="nav_link">
-            <i class="bx bx-message-square-detail nav_icon"></i>
-            <span class="nav_name">Schedule</span>
-          </a>
-          <a href="#" class="nav_link">
-            <i class="bx bx-bookmark nav_icon"></i>
-            <span class="nav_name">Interview</span>
-          </a>
-          <a href="#" class="nav_link">
-            <i class="bx bx-folder nav_icon"></i>
-            <span class="nav_name">Skill Assestment</span>
-          </a>
+          <RouterLink class="nav_link" to="/Applicants">
+            <i class="bx bx-grid-alt nav_icon"></i>
+            <span class="nav_name">Applicants</span></RouterLink
+          >
+          <RouterLink class="nav_link" to="/Schedule">
+            <i class="bx bx-grid-alt nav_icon"></i>
+            <span class="nav_name">Schedule</span></RouterLink
+          >
+          <RouterLink class="nav_link" to="/Interview">
+            <i class="bx bx-grid-alt nav_icon"></i>
+            <span class="nav_name">Interview</span></RouterLink
+          >
+
+          <RouterLink class="nav_link" to="/SkillAssesment">
+            <i class="bx bx-grid-alt nav_icon"></i>
+            <span class="nav_name">Skill Assestment</span></RouterLink
+          >
         </div>
       </div>
     </nav>
   </div>
- 
 </template>
 
 <style>

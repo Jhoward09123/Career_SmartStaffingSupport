@@ -1,6 +1,7 @@
 <script setup>
-import Side_panel from "../components/Side_panel.vue";
 import { RouterLink, RouterView } from "vue-router";
+
+import Side_panel from "../Side_panel.vue";
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import { RouterLink, RouterView } from "vue-router";
     <Side_panel />
 
     <!-- Main Content -->
-    <div class="height-100 bg-light p-3 main_content">Main Dashboard</div>
+    <div class="height-100 bg-light p-3 main_content">Schedule</div>
     <RouterView />
   </main>
 </template>
