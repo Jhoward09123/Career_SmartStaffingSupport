@@ -1,6 +1,7 @@
 import { RouterView } from 'vue-router';
 
 <template>
+  
   <nav class="nav_background p-3">
     <div class="navbar navbar-expand-lg px-5">
       <div class="container-fluid">
@@ -40,7 +41,7 @@ import { RouterView } from 'vue-router';
 
         <div>
           
-          <RouterLink class="nav-link active text-white normal_font" to="/login"
+          <RouterLink class="" to="/login"
                 ><img :src="userImage" alt="User Image" /></RouterLink
               >
         </div>
@@ -50,6 +51,7 @@ import { RouterView } from 'vue-router';
 </template>
 
 <script>
+
 import userImage from "@/assets/Images/user-solid 1 (1).png";
 import logo from "@/assets/Images/logo.png";
 export default {

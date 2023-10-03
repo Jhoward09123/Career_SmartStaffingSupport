@@ -1,5 +1,5 @@
-
 <script setup>
+import Dashboard from '../pages/Dashboard.vue'
 </script>
 
 <template>
@@ -25,17 +25,16 @@
                   class="nav-link active text-white normal_font"
                   to="/DashBoard"
                 >
-                <button class="Login_btn">Login</button>
-              </RouterLink>
-               
+                  <button class="Login_btn">Login</button>
+                </RouterLink>
               </div>
               <div class="">
-                <RouterLink
+                <router-link
                   class="nav-link active text-white normal_font"
-                  to="#"
+                  to="/Dashboard"
                 >
                   <button class="signUp_btn">Sign Up</button>
-                </RouterLink>
+                </router-link>
               </div>
             </div>
           </div>
