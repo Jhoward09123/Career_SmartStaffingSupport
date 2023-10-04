@@ -4,7 +4,7 @@ import Dashboard from '../pages/Dashboard.vue'
 </script>
 
 <template>
-  <main class="">
+  <main v-if="showLogin" class="">
     <div class="padding_body">
       <div class="login_outside flex d-flex justify-content-center">
         <div class="login_border border border-dark">
@@ -26,7 +26,7 @@ import Dashboard from '../pages/Dashboard.vue'
                   class="nav-link active text-white normal_font"
                   to="/DashBoard"
                 >
-                  <button class="Login_btn">Login</button>
+                  <button class="Login_btn"  @click="closeLogin" >Login</button>
                 </RouterLink>
               </div>
               <div class="">
@@ -45,3 +45,18 @@ import Dashboard from '../pages/Dashboard.vue'
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showLogin: true, // Initially, the component is visible
+    };
+  },
+  methods: {
+    closeLogin() {
+      this.showLogin = false; // Set showLogin to false to hide the component
+    },
+  },
+};
+</script>
