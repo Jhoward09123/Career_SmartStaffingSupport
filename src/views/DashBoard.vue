@@ -70,7 +70,9 @@ import { RouterLink, RouterView } from "vue-router";
         <table class="table_dashboard table table-bordered rounded text-center">
           <thead>
             <tr>
-              <th class="head_review" scope="col">Name</th>
+              <th class="head_review" scope="col">
+                Name <button @click="sortByName">Sort A-Z</button>
+              </th>
               <th class="head_review" scope="col">Role</th>
               <th class="head_review" scope="col">Category</th>
               <th class="head_review" scope="col">Location</th>
@@ -78,7 +80,7 @@ import { RouterLink, RouterView } from "vue-router";
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in baseData" :key="index">
+            <tr v-for="(item, index) in sortedData" :key="index">
               <td>{{ item.Name }}</td>
               <td>{{ item.Role }}</td>
               <td>{{ item.Category }}</td>
@@ -105,7 +107,6 @@ import { RouterLink, RouterView } from "vue-router";
 import Delete_icon from "@/assets/Images/delete.png";
 import check from "@/assets/Images/check.png";
 import info from "@/assets/Images/info.png";
-
 import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
@@ -113,7 +114,7 @@ import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
 export default {
   data() {
     return {
-      baseData:[
+      baseData: [
         {
           Name: "Mark",
           Role: "Call Center Agent",
@@ -121,10 +122,31 @@ export default {
           Location: "USA",
           info_icon: info,
           Accept_icon: check,
-          Delete_icon: Delete_icon
+          Delete_icon: Delete_icon,
         },
+        {
+          Name: "Darnel",
+          Role: "Call Center Agent",
+          Category: "Remote",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "James",
+          Role: "Call Center Agent",
+          Category: "Full-time",
+          Location: "Philippines",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+
         // Add more data objects here if needed
       ],
+
+      sortOrder: 1, // 1 for ascending, -1 for descending
       // Add more data objects here if needed
 
       Delete_icon,
@@ -135,6 +157,23 @@ export default {
       philipine_circle,
       usa_circle,
     };
+  },
+  computed: {
+    sortedData() {
+      return this.baseData.slice().sort((a, b) => {
+        const nameA = a.Name.toUpperCase();
+        const nameB = b.Name.toUpperCase();
+
+        if (nameA < nameB) return -1 * this.sortOrder;
+        if (nameA > nameB) return 1 * this.sortOrder;
+        return 0;
+      });
+    },
+  },
+  methods: {
+    sortByName() {
+      this.sortOrder = this.sortOrder * -1;
+    },
   },
 };
 </script>
