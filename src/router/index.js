@@ -7,7 +7,8 @@ import Interview from "../components/Dashboard_items/Interview.vue";
 import Schedule from "../components/Dashboard_items/Schedule.vue";
 
 import SkillAssesment from "../components/Dashboard_items/SkillAssesment.vue";
-
+import Login from "../components/Login.vue";
+import Review from '../components/Dashboard_items/Review.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -26,7 +27,7 @@ const router = createRouter({
       path: "/login",
       name: "Login",
 
-      component: () => import("../views/Login.vue"),
+      component: () => import("../components/Login.vue"),
     },
 
     {
@@ -60,7 +61,16 @@ const router = createRouter({
       path: "/SkillAssesment",
       name: "SkillAssesment",
 
-      component: () => import("../components/Dashboard_items/SkillAssesment.vue"),
+      component: () =>
+        import("../components/Dashboard_items/SkillAssesment.vue"),
+    },
+
+    {
+      path: "/Review",
+      name: "Review",
+
+      component: () =>
+        import("../components/Dashboard_items/Review.vue"),
     },
   ],
 });

@@ -7,24 +7,28 @@ import { RouterLink, RouterView } from "vue-router";
     <nav class="nav">
       <div>
         <div class="nav_list">
-          <RouterLink class="nav_link" to="/Dashboard">
+          <RouterLink class="nav_link py-2" to="/Dashboard">
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Dashboard</span></RouterLink
           >
-          <RouterLink class="nav_link" to="/Applicants">
+          <RouterLink class="nav_link py-2" to="/Review">
+            <i class="bx bx-grid-alt nav_icon"></i
+            ><span class="nav_name">Review</span>
+          </RouterLink>
+          <RouterLink class="nav_link py-2" to="/Applicants">
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Applicants</span></RouterLink
           >
-          <RouterLink class="nav_link" to="/Schedule">
+          <RouterLink class="nav_link py-2" to="/Schedule">
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Schedule</span></RouterLink
           >
-          <RouterLink class="nav_link" to="/Interview">
+          <RouterLink class="nav_link py-2" to="/Interview">
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Interview</span></RouterLink
           >
 
-          <RouterLink class="nav_link" to="/SkillAssesment">
+          <RouterLink class="nav_link py-2" to="/SkillAssesment">
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Skill Assestment</span></RouterLink
           >
@@ -48,7 +52,7 @@ import { RouterLink, RouterView } from "vue-router";
   background-color: #ffffff;
   color: #fff;
   width: 250px;
-  height: auto;
+  height: 900px;
   overflow-y: auto;
 }
 
@@ -75,6 +79,7 @@ import { RouterLink, RouterView } from "vue-router";
 .nav_link {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 15px;
   color: #000;
   text-decoration: none;

@@ -1,7 +1,7 @@
 @import "./base.css";
 @import "bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
+@import 'mdb-vue-ui-kit/css/mdb.min.css';
 html,
 body {
   font-family: "Poppins", sans-serif;
