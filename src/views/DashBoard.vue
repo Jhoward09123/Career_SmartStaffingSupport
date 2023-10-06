@@ -88,7 +88,7 @@ import { RouterLink, RouterView } from "vue-router";
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in filteredData" :key="index">
+            <tr v-for="(item, index) in sortedAndFilteredData" :key="index">
               <td>{{ item.Name }}</td>
               <td>{{ item.Role }}</td>
               <td>{{ item.Category }}</td>
@@ -171,8 +171,19 @@ export default {
     };
   },
   computed: {
-    sortedData() {
-      return this.baseData.slice().sort((a, b) => {
+    sortedAndFilteredData() {
+      const query = this.searchQuery.toLowerCase().trim();
+      let data = this.baseData.slice();
+
+      if (query) {
+        data = data.filter((item) => {
+          const name = item.Name.toLowerCase();
+          const role = item.Role.toLowerCase();
+          return name.includes(query) || role.includes(query);
+        });
+      }
+
+      data.sort((a, b) => {
         const nameA = a.Name.toUpperCase();
         const nameB = b.Name.toUpperCase();
         const roleA = a.Role.toUpperCase();
@@ -189,6 +200,7 @@ export default {
         }
         return 0;
       });
+      return data;
     },
     filteredData() {
       const query = this.searchQuery.toLowerCase().trim();
