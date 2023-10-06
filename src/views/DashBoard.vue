@@ -64,23 +64,31 @@ import { RouterLink, RouterView } from "vue-router";
           <div class="forReview justify-content-left w-50">All For Review</div>
           <div class="search_dash w-50 gap-4">
             <label class="Search_text">Search</label>
-            <input type="text" class="search" v-model="searchKey" />
+            <input v-model="searchQuery" placeholder="" />
           </div>
         </div>
         <table class="table_dashboard table table-bordered rounded text-center">
           <thead>
             <tr>
               <th class="head_review" scope="col">
-                Name <button @click="sortByName">Sort A-Z</button>
+                Name
+                <button class="NoBgNoBor" @click="sortByName">
+                  <img :src="sort_icon" alt="sort_icon" />
+                </button>
               </th>
-              <th class="head_review" scope="col">Role</th>
+              <th class="head_review" scope="col">
+                Role
+                <button class="NoBgNoBor" @click="sortByName">
+                  <img :src="sort_icon" alt="sort_icon" />
+                </button>
+              </th>
               <th class="head_review" scope="col">Category</th>
               <th class="head_review" scope="col">Location</th>
               <th class="head_review" scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in sortedData" :key="index">
+            <tr v-for="(item, index) in filteredData" :key="index">
               <td>{{ item.Name }}</td>
               <td>{{ item.Role }}</td>
               <td>{{ item.Category }}</td>
@@ -111,6 +119,9 @@ import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
+
+import sort_icon from "@/assets/Images/table_icons/sort-solid 1.svg";
+
 export default {
   data() {
     return {
@@ -126,7 +137,7 @@ export default {
         },
         {
           Name: "Darnel",
-          Role: "Call Center Agent",
+          Role: "Business Ad",
           Category: "Remote",
           Location: "USA",
           info_icon: info,
@@ -146,8 +157,9 @@ export default {
         // Add more data objects here if needed
       ],
 
-      sortOrder: 1, // 1 for ascending, -1 for descending
-      // Add more data objects here if needed
+      sortOrderByName: 1, // 1 for ascending, -1 for descending
+      sortOrderByRole: 1,
+      searchQuery: "",
 
       Delete_icon,
       check,
@@ -163,22 +175,52 @@ export default {
       return this.baseData.slice().sort((a, b) => {
         const nameA = a.Name.toUpperCase();
         const nameB = b.Name.toUpperCase();
+        const roleA = a.Role.toUpperCase();
+        const roleB = b.Role.toUpperCase();
 
-        if (nameA < nameB) return -1 * this.sortOrder;
-        if (nameA > nameB) return 1 * this.sortOrder;
+        if (this.sortOrderByName !== 0) {
+          if (nameA < nameB) return -1 * this.sortOrderByName;
+          if (nameA > nameB) return 1 * this.sortOrderByName;
+        }
+
+        if (this.sortOrderByRole !== 0) {
+          if (roleA < roleB) return -1 * this.sortOrderByRole;
+          if (roleA > roleB) return 1 * this.sortOrderByRole;
+        }
         return 0;
+      });
+    },
+    filteredData() {
+      const query = this.searchQuery.toLowerCase().trim();
+      if (!query) {
+        return this.baseData; // Return all data if query is empty
+      }
+
+      return this.baseData.filter((item) => {
+        const name = item.Name.toLowerCase();
+        const role = item.Role.toLowerCase();
+        return name.includes(query) || role.includes(query);
       });
     },
   },
   methods: {
     sortByName() {
-      this.sortOrder = this.sortOrder * -1;
+      this.sortOrderByName = this.sortOrderByName * -1;
+      this.sortOrderByRole = 0; // Reset role sorting
+    },
+    sortByRole() {
+      this.sortOrderByRole = this.sortOrderByRole * -1;
+      this.sortOrderByName = 0; // Reset name sorting
     },
   },
 };
 </script>
 
 <style>
+.NoBgNoBor {
+  background-color: white;
+  border-style: none;
+}
 .Search_text {
   font-size: 20px;
   font-style: normal;
