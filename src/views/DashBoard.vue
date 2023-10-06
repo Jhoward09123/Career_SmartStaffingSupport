@@ -88,7 +88,7 @@ import { RouterLink, RouterView } from "vue-router";
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in sortedAndFilteredData" :key="index">
+            <tr v-for="(item, index) in paginatedData" :key="index">
               <td>{{ item.Name }}</td>
               <td>{{ item.Role }}</td>
               <td>{{ item.Category }}</td>
@@ -103,15 +103,32 @@ import { RouterLink, RouterView } from "vue-router";
             </tr>
           </tbody>
         </table>
-        <span>Prev</span>
-        <span>1</span>
-        <span>Next</span>
+
+       <div class="d-flex gap-4">
+        <button
+          @click="previousPage"
+          :disabled="currentPage === 1"
+          class="NoBgNoBor"
+        >
+          <img :src="Previous_icon" alt="Previous_icon" />
+        </button>
+
+        <!-- Next Button -->
+        <button
+          class="NoBgNoBor"
+          @click="nextPage"
+          :disabled="currentPage === totalPages"
+        >
+          <img :src="Next_icon" alt="Next_icon" />
+        </button>
+       </div>
       </div>
     </div>
   </main>
 </template>
 
 <script>
+//icons import
 import Delete_icon from "@/assets/Images/delete.png";
 import check from "@/assets/Images/check.png";
 import info from "@/assets/Images/info.png";
@@ -119,8 +136,9 @@ import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-
 import sort_icon from "@/assets/Images/table_icons/sort-solid 1.svg";
+import Next_icon from "@/assets/Images/table_icons/Next.svg";
+import Previous_icon from "@/assets/Images/table_icons/previous.svg";
 
 export default {
   data() {
@@ -129,8 +147,8 @@ export default {
         {
           Name: "Mark",
           Role: "Call Center Agent",
-          Category: "Remote",
-          Location: "USA",
+          Category: "Part-Time",
+          Location: "Philippines",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
@@ -148,6 +166,15 @@ export default {
           Name: "James",
           Role: "Call Center Agent",
           Category: "Full-time",
+          Location: "Kenya",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Aaron",
+          Role: "Call Center Agent",
+          Category: "Full-time",
           Location: "Philippines",
           info_icon: info,
           Accept_icon: check,
@@ -157,10 +184,9 @@ export default {
         // Add more data objects here if needed
       ],
 
-      sortOrderByName: 1, // 1 for ascending, -1 for descending
-      sortOrderByRole: 1,
-      searchQuery: "",
-
+      //Icons
+      Previous_icon,
+      Next_icon,
       Delete_icon,
       check,
       info,
@@ -168,6 +194,12 @@ export default {
       lebanon_circle,
       philipine_circle,
       usa_circle,
+
+      sortOrderByName: 1, // 1 for ascending, -1 for descending
+      sortOrderByRole: 1,
+      searchQuery: "",
+      itemsPerPage: 3, // Number of items to display per page
+      currentPage: 1, // Current page number
     };
   },
   computed: {
@@ -214,8 +246,26 @@ export default {
         return name.includes(query) || role.includes(query);
       });
     },
+    paginatedData() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.sortedAndFilteredData.slice(start, end);
+    },
+    totalPages() {
+      return Math.ceil(this.sortedAndFilteredData.length / this.itemsPerPage);
+    },
   },
   methods: {
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
     sortByName() {
       this.sortOrderByName = this.sortOrderByName * -1;
       this.sortOrderByRole = 0; // Reset role sorting
