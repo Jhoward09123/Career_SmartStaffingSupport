@@ -78,7 +78,7 @@ import { RouterLink, RouterView } from "vue-router";
               </th>
               <th class="head_review" scope="col">
                 Role
-                <button class="NoBgNoBor" @click="sortByName">
+                <button class="NoBgNoBor" @click="sortByRole">
                   <img :src="sort_icon" alt="sort_icon" />
                 </button>
               </th>
@@ -104,24 +104,31 @@ import { RouterLink, RouterView } from "vue-router";
           </tbody>
         </table>
 
-       <div class="d-flex gap-4">
-        <button
-          @click="previousPage"
-          :disabled="currentPage === 1"
-          class="NoBgNoBor"
-        >
-          <img :src="Previous_icon" alt="Previous_icon" />
-        </button>
+        <div class="d-flex gap-4 justify-content-end">
+          <button
+            @click="previousPage"
+            :disabled="currentPage === 1"
+            class="NoBgNoBor"
+          >
+            <img :src="Previous_icon" alt="Previous_icon" />
+          </button>
 
-        <!-- Next Button -->
-        <button
-          class="NoBgNoBor"
-          @click="nextPage"
-          :disabled="currentPage === totalPages"
-        >
-          <img :src="Next_icon" alt="Next_icon" />
-        </button>
-       </div>
+          <!-- Next Button -->
+          <button
+            class="NoBgNoBor"
+            @click="nextPage"
+            :disabled="currentPage === totalPages"
+          >
+            <img :src="Next_icon" alt="Next_icon" />
+          </button>
+
+          <!-- Page Selector Dropdown -->
+          <select v-model="currentPage">
+            <option v-for="page in totalPageOptions" :key="page" :value="page">
+              {{ page }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </main>
@@ -203,6 +210,10 @@ export default {
     };
   },
   computed: {
+    totalPageOptions() {
+      return Array.from({ length: this.totalPages }, (_, index) => index + 1);
+    },
+
     sortedAndFilteredData() {
       const query = this.searchQuery.toLowerCase().trim();
       let data = this.baseData.slice();
@@ -330,6 +341,10 @@ export default {
   padding-bottom: 30px;
   border: 1px solid black;
 }
+
+/* .usa_card :hover{
+  background-color: red;
+} */
 
 .country_title {
   font-size: 20px;
