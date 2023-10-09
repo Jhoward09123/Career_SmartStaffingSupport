@@ -109,33 +109,42 @@ import { RouterLink, RouterView } from "vue-router";
           </tbody>
         </table>
 
-        <div class="d-flex gap-4 justify-content-end">
-          <!-- Page Selector Dropdown -->
-          <div class="Status_pages">
-            Page {{ currentPage }} out of {{ totalPages }}
+        <div class="d-flex gap-4">
+          <div class="w-50">
+            <div class="Status_pages">
+              Page {{ currentPage }} out of {{ totalPages }}
+            </div>
           </div>
-          <select v-model="currentPage">
-            <option v-for="page in totalPageOptions" :key="page" :value="page">
-              {{ page }}
-            </option>
-          </select>
+          <div class="w-50 d-flex justify-content-end gap-4">
+            <select v-model="currentPage">
+              <option
+                v-for="page in totalPageOptions"
+                :key="page"
+                :value="page"
+              >
+                {{ page }}
+              </option>
+            </select>
 
-          <button
-            @click="previousPage"
-            :disabled="currentPage === 1"
-            class="NoBgNoBor"
-          >
-            <img :src="Previous_icon" alt="Previous_icon" />
-          </button>
+            <button
+              @click="previousPage"
+              :disabled="currentPage === 1"
+              class="NoBgNoBor"
+            >
+              <img :src="Previous_icon" alt="Previous_icon" />
+            </button>
 
-          <!-- Next Button -->
-          <button
-            class="NoBgNoBor"
-            @click="nextPage"
-            :disabled="currentPage === totalPages"
-          >
-            <img :src="Next_icon" alt="Next_icon" />
-          </button>
+            <!-- Next Button -->
+            <button
+              class="NoBgNoBor"
+              @click="nextPage"
+              :disabled="currentPage === totalPages"
+            >
+              <img :src="Next_icon" alt="Next_icon" />
+            </button>
+          </div>
+
+          <!-- Page Selector Dropdown -->
         </div>
       </div>
     </div>
@@ -280,93 +289,93 @@ export default {
     },
   },
   methods: {
-  previousPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  },
-  nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-    }
-  },
-  sortByName() {
-    // Toggle the sorting order for name
-    this.sortOrderByName = this.sortOrderByName === 1 ? -1 : 1;
-
-    // Reset other sorting orders
-    this.sortOrderByRole = 0;
-    this.sortOrderByCategory = 0;
-
-    // Sort the data by name
-    this.sortedAndFilteredData.sort((a, b) => {
-      const nameA = a.Name.toUpperCase();
-      const nameB = b.Name.toUpperCase();
-
-      if (this.sortOrderByName === 1) {
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
-      } else {
-        if (nameA < nameB) return 1;
-        if (nameA > nameB) return -1;
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
       }
-
-      // If names are equal, maintain existing order
-      return 0;
-    });
-  },
-  sortByRole() {
-    // Toggle the sorting order for role
-    this.sortOrderByRole = this.sortOrderByRole === 1 ? -1 : 1;
-
-    // Reset other sorting orders
-    this.sortOrderByName = 0;
-    this.sortOrderByCategory = 0;
-
-    // Sort the data by role
-    this.sortedAndFilteredData.sort((a, b) => {
-      const roleA = a.Role.toUpperCase();
-      const roleB = b.Role.toUpperCase();
-
-      if (this.sortOrderByRole === 1) {
-        if (roleA < roleB) return -1;
-        if (roleA > roleB) return 1;
-      } else {
-        if (roleA < roleB) return 1;
-        if (roleA > roleB) return -1;
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
       }
+    },
+    sortByName() {
+      // Toggle the sorting order for name
+      this.sortOrderByName = this.sortOrderByName === 1 ? -1 : 1;
 
-      // If roles are equal, maintain existing order
-      return 0;
-    });
+      // Reset other sorting orders
+      this.sortOrderByRole = 0;
+      this.sortOrderByCategory = 0;
+
+      // Sort the data by name
+      this.sortedAndFilteredData.sort((a, b) => {
+        const nameA = a.Name.toUpperCase();
+        const nameB = b.Name.toUpperCase();
+
+        if (this.sortOrderByName === 1) {
+          if (nameA < nameB) return -1;
+          if (nameA > nameB) return 1;
+        } else {
+          if (nameA < nameB) return 1;
+          if (nameA > nameB) return -1;
+        }
+
+        // If names are equal, maintain existing order
+        return 0;
+      });
+    },
+    sortByRole() {
+      // Toggle the sorting order for role
+      this.sortOrderByRole = this.sortOrderByRole === 1 ? -1 : 1;
+
+      // Reset other sorting orders
+      this.sortOrderByName = 0;
+      this.sortOrderByCategory = 0;
+
+      // Sort the data by role
+      this.sortedAndFilteredData.sort((a, b) => {
+        const roleA = a.Role.toUpperCase();
+        const roleB = b.Role.toUpperCase();
+
+        if (this.sortOrderByRole === 1) {
+          if (roleA < roleB) return -1;
+          if (roleA > roleB) return 1;
+        } else {
+          if (roleA < roleB) return 1;
+          if (roleA > roleB) return -1;
+        }
+
+        // If roles are equal, maintain existing order
+        return 0;
+      });
+    },
+
+    sortByCategory() {
+      // Toggle the sorting order for category
+      this.sortOrderByCategory = this.sortOrderByCategory === 1 ? -1 : 1;
+
+      // Reset other sorting orders
+      this.sortOrderByName = 0;
+      this.sortOrderByRole = 0;
+
+      // Sort the data by category
+      this.sortedAndFilteredData.sort((a, b) => {
+        const categoryA = a.Category.toUpperCase();
+        const categoryB = b.Category.toUpperCase();
+
+        if (this.sortOrderByCategory === 1) {
+          if (categoryA < categoryB) return -1;
+          if (categoryA > categoryB) return 1;
+        } else {
+          if (categoryA < categoryB) return 1;
+          if (categoryA > categoryB) return -1;
+        }
+
+        // If categories are equal, maintain existing order
+        return 0;
+      });
+    },
   },
-
-  sortByCategory() {
-    // Toggle the sorting order for category
-    this.sortOrderByCategory = this.sortOrderByCategory === 1 ? -1 : 1;
-
-    // Reset other sorting orders
-    this.sortOrderByName = 0;
-    this.sortOrderByRole = 0;
-
-    // Sort the data by category
-    this.sortedAndFilteredData.sort((a, b) => {
-      const categoryA = a.Category.toUpperCase();
-      const categoryB = b.Category.toUpperCase();
-
-      if (this.sortOrderByCategory === 1) {
-        if (categoryA < categoryB) return -1;
-        if (categoryA > categoryB) return 1;
-      } else {
-        if (categoryA < categoryB) return 1;
-        if (categoryA > categoryB) return -1;
-      }
-
-      // If categories are equal, maintain existing order
-      return 0;
-    });
-  },
-},
 };
 </script>
 

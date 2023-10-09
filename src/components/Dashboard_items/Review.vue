@@ -44,8 +44,17 @@ import Side_panel from "../Side_panel.vue";
     </div>
 
     <!-- Main Content -->
-    <div class="height-100 bg-light p-3 main_content">Review</div>
+    <div class="height-100 bg-light p-3 main_content">
+      <div class="review">REVIEW APPLICANTS DASHBOARD</div>
+    </div>
   </main>
 </template>
 
-<style></style>
+<style>
+.review {
+  color: black;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+}
+</style>
