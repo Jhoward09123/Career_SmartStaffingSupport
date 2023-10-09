@@ -9,7 +9,7 @@ import Side_panel from "./components/Side_panel.vue";
 
 <template>
   <Navbar />
-  
+
   <RouterView />
 </template>
 

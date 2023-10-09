@@ -82,7 +82,12 @@ import { RouterLink, RouterView } from "vue-router";
                   <img :src="sort_icon" alt="sort_icon" />
                 </button>
               </th>
-              <th class="head_review" scope="col">Category</th>
+              <th class="head_review" scope="col">
+                Category
+                <button class="NoBgNoBor" @click="sortByCategory">
+                  <img :src="sort_icon" alt="sort_icon" />
+                </button>
+              </th>
               <th class="head_review" scope="col">Location</th>
               <th class="head_review" scope="col">Action</th>
             </tr>
@@ -205,6 +210,7 @@ export default {
       philipine_circle,
       usa_circle,
 
+      sortOrderByCategory: 1,
       sortOrderByName: 1, // 1 for ascending, -1 for descending
       sortOrderByRole: 1,
       searchQuery: "",
@@ -243,6 +249,10 @@ export default {
         if (this.sortOrderByRole !== 0) {
           if (roleA < roleB) return -1 * this.sortOrderByRole;
           if (roleA > roleB) return 1 * this.sortOrderByRole;
+        }
+        if (this.sortOrderByCategory !== 0) {
+          if (a.Category < b.Category) return -1 * this.sortOrderByCategory;
+          if (a.Category > b.Category) return 1 * this.sortOrderByCategory;
         }
         return 0;
       });
@@ -284,9 +294,31 @@ export default {
       this.sortOrderByName = this.sortOrderByName * -1;
       this.sortOrderByRole = 0; // Reset role sorting
     },
-    sortByRole() {
-      this.sortOrderByRole = this.sortOrderByRole * -1;
-      this.sortOrderByName = 0; // Reset name sorting
+
+    sortByCategory() {
+      // Toggle the sorting order for category
+      this.sortOrderByCategory = this.sortOrderByCategory === 1 ? -1 : 1;
+
+      // Reset other sorting orders
+      this.sortOrderByName = 0;
+      this.sortOrderByRole = 0;
+
+      // Sort the data by category
+      this.sortedAndFilteredData.sort((a, b) => {
+        const categoryA = a.Category.toUpperCase();
+        const categoryB = b.Category.toUpperCase();
+
+        if (this.sortOrderByCategory === 1) {
+          if (categoryA < categoryB) return -1;
+          if (categoryA > categoryB) return 1;
+        } else {
+          if (categoryA < categoryB) return 1;
+          if (categoryA > categoryB) return -1;
+        }
+
+        // If categories are equal, maintain existing order
+        return 0;
+      });
     },
   },
 };
