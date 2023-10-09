@@ -179,7 +179,7 @@ export default {
         },
         {
           Name: "James",
-          Role: "Call Center Agent",
+          Role: "Admin Assistant",
           Category: "Full-time",
           Location: "Kenya",
           info_icon: info,
@@ -280,47 +280,93 @@ export default {
     },
   },
   methods: {
-    previousPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-      }
-    },
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-      }
-    },
-    sortByName() {
-      this.sortOrderByName = this.sortOrderByName * -1;
-      this.sortOrderByRole = 0; // Reset role sorting
-    },
-
-    sortByCategory() {
-      // Toggle the sorting order for category
-      this.sortOrderByCategory = this.sortOrderByCategory === 1 ? -1 : 1;
-
-      // Reset other sorting orders
-      this.sortOrderByName = 0;
-      this.sortOrderByRole = 0;
-
-      // Sort the data by category
-      this.sortedAndFilteredData.sort((a, b) => {
-        const categoryA = a.Category.toUpperCase();
-        const categoryB = b.Category.toUpperCase();
-
-        if (this.sortOrderByCategory === 1) {
-          if (categoryA < categoryB) return -1;
-          if (categoryA > categoryB) return 1;
-        } else {
-          if (categoryA < categoryB) return 1;
-          if (categoryA > categoryB) return -1;
-        }
-
-        // If categories are equal, maintain existing order
-        return 0;
-      });
-    },
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   },
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  },
+  sortByName() {
+    // Toggle the sorting order for name
+    this.sortOrderByName = this.sortOrderByName === 1 ? -1 : 1;
+
+    // Reset other sorting orders
+    this.sortOrderByRole = 0;
+    this.sortOrderByCategory = 0;
+
+    // Sort the data by name
+    this.sortedAndFilteredData.sort((a, b) => {
+      const nameA = a.Name.toUpperCase();
+      const nameB = b.Name.toUpperCase();
+
+      if (this.sortOrderByName === 1) {
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+      } else {
+        if (nameA < nameB) return 1;
+        if (nameA > nameB) return -1;
+      }
+
+      // If names are equal, maintain existing order
+      return 0;
+    });
+  },
+  sortByRole() {
+    // Toggle the sorting order for role
+    this.sortOrderByRole = this.sortOrderByRole === 1 ? -1 : 1;
+
+    // Reset other sorting orders
+    this.sortOrderByName = 0;
+    this.sortOrderByCategory = 0;
+
+    // Sort the data by role
+    this.sortedAndFilteredData.sort((a, b) => {
+      const roleA = a.Role.toUpperCase();
+      const roleB = b.Role.toUpperCase();
+
+      if (this.sortOrderByRole === 1) {
+        if (roleA < roleB) return -1;
+        if (roleA > roleB) return 1;
+      } else {
+        if (roleA < roleB) return 1;
+        if (roleA > roleB) return -1;
+      }
+
+      // If roles are equal, maintain existing order
+      return 0;
+    });
+  },
+
+  sortByCategory() {
+    // Toggle the sorting order for category
+    this.sortOrderByCategory = this.sortOrderByCategory === 1 ? -1 : 1;
+
+    // Reset other sorting orders
+    this.sortOrderByName = 0;
+    this.sortOrderByRole = 0;
+
+    // Sort the data by category
+    this.sortedAndFilteredData.sort((a, b) => {
+      const categoryA = a.Category.toUpperCase();
+      const categoryB = b.Category.toUpperCase();
+
+      if (this.sortOrderByCategory === 1) {
+        if (categoryA < categoryB) return -1;
+        if (categoryA > categoryB) return 1;
+      } else {
+        if (categoryA < categoryB) return 1;
+        if (categoryA > categoryB) return -1;
+      }
+
+      // If categories are equal, maintain existing order
+      return 0;
+    });
+  },
+},
 };
 </script>
 
