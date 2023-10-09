@@ -12,8 +12,11 @@ import { RouterLink, RouterView } from "vue-router";
             <span class="nav_name">Dashboard</span></RouterLink
           >
           <RouterLink class="nav_link py-2" to="/Review">
-            <i class="bx bx-grid-alt nav_icon"></i
-            ><span class="nav_name">Review</span>
+            <i class="bx bx-grid-alt nav_icon"></i>
+            <span class="nav_name">
+              Review
+              <span class="notification">2</span>
+            </span>
           </RouterLink>
           <RouterLink class="nav_link py-2" to="/Applicants">
             <i class="bx bx-grid-alt nav_icon"></i>
@@ -39,6 +42,21 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style>
+.nav_name {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.notification {
+  background-color: red; /* Set your desired background color */
+  color: white; /* Set your desired text color */
+  border-radius: 50%; /* To make it a circle */
+  padding: 0px 8px; /* Adjust padding as needed */
+  margin-left: 4px; /* Adjust the distance from the text */
+  font-size: 15px;
+  margin-bottom: 10px;
+}
 .nav_link.active-link {
   background-color: #000;
   color: white;
@@ -64,6 +82,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 .nav_logo-icon {
   font-size: 24px;
+
   margin-right: 10px;
 }
 

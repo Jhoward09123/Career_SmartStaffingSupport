@@ -105,6 +105,16 @@ import { RouterLink, RouterView } from "vue-router";
         </table>
 
         <div class="d-flex gap-4 justify-content-end">
+          <!-- Page Selector Dropdown -->
+          <div class="Status_pages">
+            Page {{ currentPage }} out of {{ totalPages }}
+          </div>
+          <select v-model="currentPage">
+            <option v-for="page in totalPageOptions" :key="page" :value="page">
+              {{ page }}
+            </option>
+          </select>
+
           <button
             @click="previousPage"
             :disabled="currentPage === 1"
@@ -121,13 +131,6 @@ import { RouterLink, RouterView } from "vue-router";
           >
             <img :src="Next_icon" alt="Next_icon" />
           </button>
-
-          <!-- Page Selector Dropdown -->
-          <select v-model="currentPage">
-            <option v-for="page in totalPageOptions" :key="page" :value="page">
-              {{ page }}
-            </option>
-          </select>
         </div>
       </div>
     </div>
@@ -290,6 +293,46 @@ export default {
 </script>
 
 <style>
+.usa_card:hover .country_title,
+.usa_card:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.usa_card:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.philippines_card:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.philippines_card:hover .country_title,
+.philippines_card:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.Kenya_card:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.Kenya_card:hover .country_title,
+.Kenya_card:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.Lebanon_card:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.Lebanon_card:hover .country_title,
+.Lebanon_card:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
 .NoBgNoBor {
   background-color: white;
   border-style: none;
