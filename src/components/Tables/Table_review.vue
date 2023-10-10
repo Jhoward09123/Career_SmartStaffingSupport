@@ -25,7 +25,11 @@
           <th class="head_review" scope="col">
             Category
             <button class="NoBgNoBor" @click="sortByCategory">
-              <img :src="sort_icon" alt="sort_icon" />
+              <img
+                :src="sort_icon"
+                :class="{ reversed: sortOrder === -1 }"
+                alt="sort_icon"
+              />
             </button>
           </th>
           <th class="head_review" scope="col">Location</th>
@@ -99,17 +103,19 @@ import info from "@/assets/Images/info.png";
 export default {
   data() {
     return {
-      // ... your other data ...
+      sortOrder: 1,
+      sortNameAsc: true, // sorting for true and false
+      searchQuery: "", // empty search
+      itemsPerPage: 3, // change the number of rows
+      currentPage: 1, //  current page holder
+      categoryOrder: 1, // start from 1 and decend to -1
 
-      searchQuery: "",
-      itemsPerPage: 3, // Change this to your desired number of rows per page
-      currentPage: 1, // Current page number
-
+      //data
       baseData: [
         {
           Name: "John Doe",
           Role: "Developer",
-          Category: "Full-time",
+          Category: "Full-Time",
           Location: "USA",
           info_icon: info,
           Accept_icon: check,
@@ -118,7 +124,7 @@ export default {
         {
           Name: "Alice Johnson",
           Role: "Designer",
-          Category: "Part-time",
+          Category: "Part-Time",
           Location: "Canada",
           info_icon: info,
           Accept_icon: check,
@@ -127,7 +133,7 @@ export default {
         {
           Name: "Bob Smith",
           Role: "Manager",
-          Category: "Full-time",
+          Category: "Part-Time",
           Location: "UK",
           info_icon: info,
           Accept_icon: check,
@@ -136,18 +142,19 @@ export default {
         {
           Name: "Bob Smith",
           Role: "Manager",
-          Category: "Full-time",
+          Category: "Remote",
           Location: "UK",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
 
-        // Add more data objects here if needed
+        // Add more data
       ],
     };
   },
   computed: {
+    //for search
     filteredData() {
       const query = this.searchQuery.toLowerCase().trim();
       if (!query) {
@@ -166,11 +173,14 @@ export default {
         );
       });
     },
+
+    // page status 1 out 2
     paginatedData() {
       const startIndex = (this.currentPage - 1) * this.itemsPerPage;
       const endIndex = startIndex + this.itemsPerPage;
       return this.filteredData.slice(startIndex, endIndex);
     },
+    //Total for page for drop
     totalPageOptions() {
       const totalItems = this.filteredData.length;
       const totalPages = Math.ceil(totalItems / this.itemsPerPage);
@@ -179,11 +189,62 @@ export default {
   },
 
   methods: {
+    //sort by category
+    sortByCategory() {
+    // Toggle the sorting order
+    this.sortOrder = this.sortOrder * -1;
+
+    this.filteredData.sort((a, b) => {
+      const categoryA = a.Category.toLowerCase();
+      const categoryB = b.Category.toLowerCase();
+
+      // Multiply by sortOrder to control ascending or descending order
+      if (categoryA < categoryB) {
+        return -1 * this.sortOrder;
+      } else if (categoryA > categoryB) {
+        return 1 * this.sortOrder;
+      }
+      return 0;
+    });
+  },
+
+    //name sorting
+    sortByName() {
+      this.sortNameAsc = !this.sortNameAsc;
+      this.baseData.sort((a, b) => {
+        const nameA = a.Name.toLowerCase();
+        const nameB = b.Name.toLowerCase();
+
+        if (this.sortNameAsc) {
+          return nameA.localeCompare(nameB);
+        } else {
+          return nameB.localeCompare(nameA);
+        }
+      });
+    },
+
+    //Sorting by Role
+    sortByRole() {
+      this.sortRoleAsc = !this.sortRoleAsc;
+      this.baseData.sort((a, b) => {
+        const nameA = a.Name.toLowerCase();
+        const nameB = b.Name.toLowerCase();
+
+        if (this.sortRoleAsc) {
+          return nameA.localeCompare(nameB);
+        } else {
+          return nameB.localeCompare(nameA);
+        }
+      });
+    },
+
+    //next page
     nextPage() {
       if (this.currentPage < this.totalPageOptions.length) {
         this.currentPage++;
       }
     },
+    //previous Page
     previousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
