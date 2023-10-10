@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from "vue-router";
 
     <!-- Main Content -->
     <div class="main_content height-100 bg-white">
-      <div class="Title_dash">DashBoard</div>
+      <div class="Title_dash">DASHBOARD</div>
       <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
         <div class="usa_card shadow">
           <div class="image_circle pb-3">
@@ -61,7 +61,7 @@ import { RouterLink, RouterView } from "vue-router";
       </div>
       <div class="table_dash pt-5">
         <div class="flex d-flex">
-          <div class="forReview justify-content-left w-50">All For Review</div>
+          <div class="forReview justify-content-left w-50">All Latest Applicants</div>
           <div class="search_dash w-50 gap-4">
             <label class="Search_text">Search</label>
             <input v-model="searchQuery" placeholder="" />

@@ -44,11 +44,60 @@ import Side_panel from "../Side_panel.vue";
     </div>
 
     <!-- Main Content -->
-    <div class="height-100 bg-light p-3 main_content">
+    <div class="main_content height-100 bg-white">
       <div class="review">REVIEW APPLICANTS DASHBOARD</div>
+      <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
+        <div class="usa_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="usa_circle" alt="User Image" />
+          </div>
+          <div class="country_title">USA</div>
+          <div class="new_app pt-2">
+            <div class="">For Approval: <b>18</b></div>
+          </div>
+        </div>
+        <div class="philippines_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="philipine_circle" alt="User Image" />
+          </div>
+          <div class="country_title">PHILIPPINES</div>
+          <div class="new_app pt-2">
+            <div class="">For Approval: <b>18</b></div>
+          </div>
+        </div>
+        <div class="Kenya_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="kenya_circle" alt="User Image" />
+          </div>
+          <div class="country_title">KENYA</div>
+          <div class="new_app pt-2">
+            <div class="">For Approval: <b>18</b></div>
+          </div>
+        </div>
+        <div class="Lebanon_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="lebanon_circle" alt="User Image" />
+          </div>
+          <div class="country_title">LEBANON</div>
+          <div class="new_app pt-2">
+            <div class="">For Approval: <b>18</b></div>
+          </div>
+        </div>
+      </div>
+      <!-- TABLE HERE -->
+      <Table_review />
     </div>
   </main>
 </template>
+
+<script>
+import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
+import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
+import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
+import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
+
+import Table_review from "../Tables/Table_review.vue";
+</script>
 
 <style>
 .review {
@@ -56,5 +105,56 @@ import Side_panel from "../Side_panel.vue";
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
+}
+.usa_card_review:hover .country_title,
+.usa_card_review:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.usa_card_review:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.philippines_card_review:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.philippines_card_review:hover .country_title,
+.philippines_card_review:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.Kenya_card_review:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.Kenya_card_review:hover .country_title,
+.Kenya_card_review:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.Lebanon_card_review:hover {
+  background-color: #040c53;
+  cursor: pointer;
+}
+
+.Lebanon_card_review:hover .country_title,
+.Lebanon_card_review:hover .new_app {
+  color: white; /* Text color for country_title and new_app on hover */
+}
+
+.usa_card_review,
+.philippines_card_review,
+.Kenya_card_review,
+.Lebanon_card_review {
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: 1px solid black;
 }
 </style>
