@@ -33,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in filteredData" :key="index">
+        <tr v-for="(item, index) in baseData" :key="index">
           <td>{{ item.Name }}</td>
           <td>{{ item.Role }}</td>
           <td>{{ item.Category }}</td>
@@ -128,7 +128,6 @@ export default {
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         // Add more data objects here if needed
       ],
     };
