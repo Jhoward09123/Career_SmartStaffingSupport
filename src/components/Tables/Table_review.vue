@@ -33,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in baseData" :key="index">
+        <tr v-for="(item, index) in paginatedData" :key="index">
           <td>{{ item.Name }}</td>
           <td>{{ item.Role }}</td>
           <td>{{ item.Category }}</td>
@@ -52,7 +52,8 @@
     <div class="d-flex gap-4">
       <div class="w-50">
         <div class="Status_pages">
-          Page {{ currentPage }} out of {{ totalPages }}
+          Page {{ currentPage }} out of
+          {{ Math.ceil(filteredData.length / itemsPerPage) }}
         </div>
       </div>
       <div class="w-50 d-flex justify-content-end gap-4">
@@ -100,6 +101,10 @@ export default {
     return {
       // ... your other data ...
 
+      searchQuery: "",
+      itemsPerPage: 3, // Change this to your desired number of rows per page
+      currentPage: 1, // Current page number
+
       baseData: [
         {
           Name: "John Doe",
@@ -128,6 +133,16 @@ export default {
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
+        {
+          Name: "Bob Smith",
+          Role: "Manager",
+          Category: "Full-time",
+          Location: "UK",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+
         // Add more data objects here if needed
       ],
     };
@@ -142,8 +157,37 @@ export default {
       return this.baseData.filter((item) => {
         const name = item.Name.toLowerCase();
         const role = item.Role.toLowerCase();
-        return name.includes(query) || role.includes(query);
+        const location = item.Location.toLowerCase();
+
+        return (
+          name.includes(query) ||
+          role.includes(query) ||
+          location.includes(query)
+        );
       });
+    },
+    paginatedData() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.filteredData.slice(startIndex, endIndex);
+    },
+    totalPageOptions() {
+      const totalItems = this.filteredData.length;
+      const totalPages = Math.ceil(totalItems / this.itemsPerPage);
+      return Array.from({ length: totalPages }, (_, index) => index + 1);
+    },
+  },
+
+  methods: {
+    nextPage() {
+      if (this.currentPage < this.totalPageOptions.length) {
+        this.currentPage++;
+      }
+    },
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
     },
   },
 };
