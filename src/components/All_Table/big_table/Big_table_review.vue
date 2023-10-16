@@ -1,7 +1,13 @@
 <template>
   <div class="table_dash pt-5">
     <div class="flex d-flex">
-      <div class="forReview justify-content-left w-50">All Review</div>
+      <div class="forReview justify-content-left w-50 flex d-flex gap-2">
+        All Review
+
+        <div class="flag">
+          <img :src="usa_flag" alt="usa_flag" />
+        </div>
+      </div>
       <div class="search_dash w-50 gap-4">
         <label class="Search_text">Search</label>
         <input v-model="searchQuery" placeholder="" />
@@ -91,6 +97,7 @@
 </template>
 
 <script setup>
+import usa_flag from "@/assets/Images/flag_only/usa_flag.png";
 import sort_icon from "@/assets/Images/table_icons/sort-solid 1.svg";
 import Next_icon from "@/assets/Images/table_icons/Next.svg";
 import Previous_icon from "@/assets/Images/table_icons/previous.svg";

@@ -47,43 +47,54 @@ import Side_panel from "../Side_panel.vue";
     <div class="main_content height-100 bg-white">
       <div class="review">REVIEW APPLICANTS DASHBOARD</div>
       <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
-        <div class="usa_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="usa_circle" alt="User Image" />
+        <router-link to="/Review/Review_view_table">
+          <div class="usa_card_review shadow">
+            <div class="image_circle pb-3">
+              <img :src="usa_circle" alt="User Image" />
+            </div>
+            <div class="country_title">USA</div>
+            <div class="new_app pt-2">
+              <div class="">For Approval: <b>18</b></div>
+            </div>
           </div>
-          <div class="country_title">USA</div>
-          <div class="new_app pt-2">
-            <div class="">For Approval: <b>18</b></div>
+        </router-link>
+        <router-link to="/">
+          <div class="philippines_card_review shadow">
+            <div class="image_circle pb-3">
+              <img :src="philipine_circle" alt="User Image" />
+            </div>
+            <div class="country_title">PHILIPPINES</div>
+            <div class="new_app pt-2">
+              <div class="">For Approval: <b>18</b></div>
+            </div>
           </div>
-        </div>
-        <div class="philippines_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="philipine_circle" alt="User Image" />
+        </router-link>
+
+        <router-link to="/">
+          <div class="Kenya_card_review shadow">
+            <div class="image_circle pb-3">
+              <img :src="kenya_circle" alt="User Image" />
+            </div>
+            <div class="country_title">KENYA</div>
+            <div class="new_app pt-2">
+              <div class="">For Approval: <b>18</b></div>
+            </div>
           </div>
-          <div class="country_title">PHILIPPINES</div>
-          <div class="new_app pt-2">
-            <div class="">For Approval: <b>18</b></div>
+        </router-link>
+
+        <router-link to="/">
+          <div class="Lebanon_card_review shadow">
+            <div class="image_circle pb-3">
+              <img :src="lebanon_circle" alt="User Image" />
+            </div>
+            <div class="country_title">LEBANON</div>
+            <div class="new_app pt-2">
+              <div class="">For Approval: <b>18</b></div>
+            </div>
           </div>
-        </div>
-        <div class="Kenya_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="kenya_circle" alt="User Image" />
-          </div>
-          <div class="country_title">KENYA</div>
-          <div class="new_app pt-2">
-            <div class="">For Approval: <b>18</b></div>
-          </div>
-        </div>
-        <div class="Lebanon_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="lebanon_circle" alt="User Image" />
-          </div>
-          <div class="country_title">LEBANON</div>
-          <div class="new_app pt-2">
-            <div class="">For Approval: <b>18</b></div>
-          </div>
-        </div>
+        </router-link>
       </div>
+
       <!-- TABLE HERE -->
       <Table_review />
     </div>

@@ -15,48 +15,56 @@ import { RouterLink, RouterView } from "vue-router";
       <div class="Title_dash">DASHBOARD</div>
       <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
         <div class="usa_card shadow">
-          <div class="image_circle pb-3">
-            <img :src="usa_circle" alt="User Image" />
-          </div>
-          <div class="country_title">USA</div>
-          <div class="new_app pt-2">
-            <div class="">New Applicant: <b>18</b></div>
-            <div class="">For Approval: <b>18</b></div>
-            <div class="">Interview: <b>18</b></div>
-          </div>
+          <router-link to="/Review">
+            <div class="image_circle pb-3">
+              <img :src="usa_circle" alt="User Image" />
+            </div>
+            <div class="country_title">USA</div>
+            <div class="new_app pt-2">
+              <div class="">New Applicant: <b>18</b></div>
+              <div class="">For Approval: <b>18</b></div>
+              <div class="">Interview: <b>18</b></div>
+            </div>
+          </router-link>
         </div>
         <div class="philippines_card shadow">
-          <div class="image_circle pb-3">
-            <img :src="philipine_circle" alt="User Image" />
-          </div>
-          <div class="country_title">PHILIPPINES</div>
-          <div class="new_app pt-2">
-            <div class="">New Applicant: <b>18</b></div>
-            <div class="">For Approval: <b>18</b></div>
-            <div class="">Interview: <b>18</b></div>
-          </div>
+          <router-link to="/Review">
+            <div class="image_circle pb-3">
+              <img :src="philipine_circle" alt="User Image" />
+            </div>
+            <div class="country_title">PHILIPPINES</div>
+            <div class="new_app pt-2">
+              <div class="">New Applicant: <b>18</b></div>
+              <div class="">For Approval: <b>18</b></div>
+              <div class="">Interview: <b>18</b></div>
+            </div>
+          </router-link>
         </div>
         <div class="Kenya_card shadow">
-          <div class="image_circle pb-3">
-            <img :src="kenya_circle" alt="User Image" />
-          </div>
-          <div class="country_title">KENYA</div>
-          <div class="new_app pt-2">
-            <div class="">New Applicant: <b>18</b></div>
-            <div class="">For Approval: <b>18</b></div>
-            <div class="">Interview: <b>18</b></div>
-          </div>
+          <router-link to="/Review">
+            <div class="image_circle pb-3">
+              <img :src="kenya_circle" alt="User Image" />
+            </div>
+            <div class="country_title">KENYA</div>
+            <div class="new_app pt-2">
+              <div class="">New Applicant: <b>18</b></div>
+              <div class="">For Approval: <b>18</b></div>
+              <div class="">Interview: <b>18</b></div>
+            </div>
+          </router-link>
         </div>
         <div class="Lebanon_card shadow">
-          <div class="image_circle pb-3">
-            <img :src="lebanon_circle" alt="User Image" />
-          </div>
-          <div class="country_title">LEBANON</div>
-          <div class="new_app pt-2">
-            <div class="">New Applicant: <b>18</b></div>
-            <div class="">For Approval: <b>18</b></div>
-            <div class="">Interview: <b>18</b></div>
-          </div>
+          <router-link to="/Review">
+            <div class="image_circle pb-3">
+              <img :src="lebanon_circle" alt="User Image" />
+            </div>
+            <div class="country_title">LEBANON</div>
+            <div class="new_app pt-2">
+              <div class="">New Applicant: <b>18</b></div>
+              <div class="">For Approval: <b>18</b></div>
+              <div class="">Interview: <b>18</b></div>
+            </div>
+          </router-link>
         </div>
       </div>
       <div class="table_dash pt-5">
