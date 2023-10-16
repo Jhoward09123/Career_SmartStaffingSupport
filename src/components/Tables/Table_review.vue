@@ -191,22 +191,22 @@ export default {
   methods: {
     //sort by category
     sortByCategory() {
-    // Toggle the sorting order
-    this.sortOrder = this.sortOrder * -1;
+      // Toggle the sorting order
+      this.sortOrder = this.sortOrder * -1;
 
-    this.filteredData.sort((a, b) => {
-      const categoryA = a.Category.toLowerCase();
-      const categoryB = b.Category.toLowerCase();
+      this.filteredData.sort((a, b) => {
+        const categoryA = a.Category.toLowerCase();
+        const categoryB = b.Category.toLowerCase();
 
-      // Multiply by sortOrder to control ascending or descending order
-      if (categoryA < categoryB) {
-        return -1 * this.sortOrder;
-      } else if (categoryA > categoryB) {
-        return 1 * this.sortOrder;
-      }
-      return 0;
-    });
-  },
+        // Multiply by sortOrder to control ascending or descending order
+        if (categoryA < categoryB) {
+          return -1 * this.sortOrder;
+        } else if (categoryA > categoryB) {
+          return 1 * this.sortOrder;
+        }
+        return 0;
+      });
+    },
 
     //name sorting
     sortByName() {
