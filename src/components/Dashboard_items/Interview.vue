@@ -44,8 +44,57 @@ import Side_panel from "../Side_panel.vue";
     </div>
 
     <!-- Main Content -->
-    <div class="height-100 bg-light p-3 main_content">Interview</div>
+    <div class="main_content height-100 bg-white">
+      <div class="review">INTERVIEW DASHBOARD</div>
+      <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
+        <div class="usa_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="usa_circle" alt="User Image" />
+          </div>
+          <div class="country_title">USA</div>
+          <div class="new_app pt-2">
+            <div class="">interview: <b>1</b></div>
+          </div>
+        </div>
+        <div class="philippines_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="philipine_circle" alt="User Image" />
+          </div>
+          <div class="country_title">PHILIPPINES</div>
+          <div class="new_app pt-2">
+            <div class="">interview: <b>18</b></div>
+          </div>
+        </div>
+        <div class="Kenya_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="kenya_circle" alt="User Image" />
+          </div>
+          <div class="country_title">KENYA</div>
+          <div class="new_app pt-2">
+            <div class="">interview: <b>18</b></div>
+          </div>
+        </div>
+        <div class="Lebanon_card_review shadow">
+          <div class="image_circle pb-3">
+            <img :src="lebanon_circle" alt="User Image" />
+          </div>
+          <div class="country_title">LEBANON</div>
+          <div class="new_app pt-2">
+            <div class="">interview: <b>18</b></div>
+          </div>
+        </div>
+      </div>
+      <Table_Interview />
+    </div>
   </main>
 </template>
+
+<script>
+import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
+import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
+import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
+import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
+import Table_Interview from "../Tables/Table_Interview.vue";
+</script>
 
 <style></style>

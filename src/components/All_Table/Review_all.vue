@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+
+import Table_review from "../Tables/Table_review.vue";
 </script>
 
 <template>
@@ -43,57 +45,20 @@ import { RouterLink, RouterView } from "vue-router";
 
     <!-- Main Content -->
     <div class="main_content height-100 bg-white">
-      <div class="review">SCHEDULE DASHBOARD</div>
-      <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
-        <div class="usa_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="usa_circle" alt="User Image" />
-          </div>
-          <div class="country_title">USA</div>
-          <div class="new_app pt-2">
-            <div class="">Schedule: <b>1</b></div>
-          </div>
-        </div>
-        <div class="philippines_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="philipine_circle" alt="User Image" />
-          </div>
-          <div class="country_title">PHILIPPINES</div>
-          <div class="new_app pt-2">
-            <div class="">Schedule: <b>18</b></div>
-          </div>
-        </div>
-        <div class="Kenya_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="kenya_circle" alt="User Image" />
-          </div>
-          <div class="country_title">KENYA</div>
-          <div class="new_app pt-2">
-            <div class="">Schedule: <b>18</b></div>
-          </div>
-        </div>
-        <div class="Lebanon_card_review shadow">
-          <div class="image_circle pb-3">
-            <img :src="lebanon_circle" alt="User Image" />
-          </div>
-          <div class="country_title">LEBANON</div>
-          <div class="new_app pt-2">
-            <div class="">Schedule: <b>18</b></div>
-          </div>
-        </div>
-      </div>
-     <!-- table here -->
-     <Table_schedule />
+      <div class="review">All APPLICANTS DASHBOARD</div>
+
+      <!-- table here -->
+      <Big_table_review />
     </div>
   </main>
 </template>
 
 <script>
+import Big_table_review from "./big_table/Big_table_review.vue";
 import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-import Table_schedule from '../Tables/Table_Schedule.vue'
 </script>
 
 <style></style>

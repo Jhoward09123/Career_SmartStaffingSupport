@@ -8,7 +8,7 @@ import Schedule from "../components/Dashboard_items/Schedule.vue";
 
 import SkillAssesment from "../components/Dashboard_items/SkillAssesment.vue";
 import Login from "../components/Login.vue";
-import Review from '../components/Dashboard_items/Review.vue'
+import Review from "../components/Dashboard_items/Review.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -69,8 +69,14 @@ const router = createRouter({
       path: "/Review",
       name: "Review",
 
-      component: () =>
-        import("../components/Dashboard_items/Review.vue"),
+      component: () => import("../components/Dashboard_items/Review.vue"),
+    },
+
+    {
+      path: "/Review/Review_view_table",
+      name: "view_table",
+
+      component: () => import("../components/All_Table/Review_all.vue"),
     },
   ],
 });

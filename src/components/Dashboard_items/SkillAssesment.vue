@@ -44,7 +44,7 @@ import Side_panel from "../Side_panel.vue";
     </div>
 
     <!-- Main Content -->
-    <div class="height-100 bg-light p-3 main_content">Skill Assestment</div>
+    <div class="height-100 bg-light p-3 main_content">Coming soon...</div>
   </main>
 </template>
 
