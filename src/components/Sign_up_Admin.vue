@@ -74,6 +74,7 @@
   color: white;
 }
 .form-select_signup {
+  border-radius: 10px;
   width: 562px;
   height: 55px;
   font-size: 24px;
