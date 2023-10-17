@@ -93,7 +93,7 @@ import Table_review from "../Tables/Table_review.vue";
         </div>
       </div>
       <!-- table here -->
-      <Table_application />
+     
     </div>
   </main>
 </template>

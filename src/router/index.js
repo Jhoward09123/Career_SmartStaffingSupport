@@ -85,6 +85,22 @@ const router = createRouter({
 
       component: () => import("../components/Sign_up_Admin.vue"),
     },
+
+    {
+      path: "/Review/Big_table_phil",
+      name: "Big_table_phil",
+
+      component: () =>
+        import("../components/All_Table/big_table/Big_table_phil.vue"),
+    },
+
+    {
+      path: "/Review/Big_table_kenya",
+      name: "Big_table_kenya",
+
+      component: () =>
+        import("../components/All_Table/big_table/Big_table_kenya.vue"),
+    },
   ],
 });
 

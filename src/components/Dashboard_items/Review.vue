@@ -58,7 +58,7 @@ import Side_panel from "../Side_panel.vue";
             </div>
           </div>
         </router-link>
-        <router-link to="/">
+        <router-link to="/Review/Big_table_phil">
           <div class="philippines_card_review shadow">
             <div class="image_circle pb-3">
               <img :src="philipine_circle" alt="User Image" />
@@ -70,7 +70,7 @@ import Side_panel from "../Side_panel.vue";
           </div>
         </router-link>
 
-        <router-link to="/">
+        <router-link to="/Review/Big_table_Kenya">
           <div class="Kenya_card_review shadow">
             <div class="image_circle pb-3">
               <img :src="kenya_circle" alt="User Image" />
