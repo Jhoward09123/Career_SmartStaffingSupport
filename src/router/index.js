@@ -78,6 +78,13 @@ const router = createRouter({
 
       component: () => import("../components/All_Table/Review_all.vue"),
     },
+
+    {
+      path: "/Sign_up_Admin",
+      name: "Sign_up_Admin",
+
+      component: () => import("../components/Sign_up_Admin.vue"),
+    },
   ],
 });
 
