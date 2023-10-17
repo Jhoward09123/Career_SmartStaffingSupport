@@ -93,7 +93,7 @@ import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-import Table_schedule from '../Tables/Table_Schedule.vue'
+
 </script>
 
 <style></style>
