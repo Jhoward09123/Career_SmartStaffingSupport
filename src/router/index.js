@@ -10,7 +10,7 @@ import SkillAssesment from "../components/Dashboard_items/SkillAssesment.vue";
 import Login from "../components/Login.vue";
 import Review from "../components/Dashboard_items/Review.vue";
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.VUE_APP_BASE_API_URL),
   routes: [
     {
       path: "/",
