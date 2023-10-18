@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from "vue-router";
-import axios, {isCancel, AxiosError} from 'axios';
+import axios, { isCancel, AxiosError } from "axios";
 </script>
 
 <template>
@@ -33,7 +33,6 @@ import axios, {isCancel, AxiosError} from 'axios';
                   class="nav-link active text-white normal_font"
                   to="/Sign_up_Admin"
                 >
-               
                   <button @click="closeLogin" class="signUp_btn">
                     Sign Up
                   </button>
