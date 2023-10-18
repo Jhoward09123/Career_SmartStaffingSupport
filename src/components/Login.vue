@@ -1,6 +1,16 @@
 <script setup>
-import { RouterView } from "vue-router";
-import axios, {isCancel, AxiosError} from 'axios';
+import { ref } from 'vue'
+import { RouterView, useRouter} from "vue-router";
+import { useAuthStore } from '../stores/auth';
+
+const authStore = useAuthStore()
+const router = useRouter()
+
+const form = ref({
+  email: '',
+  password: ""
+})
+
 </script>
 
 <template>
@@ -8,25 +18,22 @@ import axios, {isCancel, AxiosError} from 'axios';
     <div class="padding_body">
       <div class="login_outside flex d-flex justify-content-center">
         <div class="login_border border border-dark">
-          <div class="pad_top_log">
-            <div class="Admin_login">Admin Login</div>
-            <label class="user_label"> User </label>
-            <div>
-              <input class="input_User" type="text" />
-            </div>
-            <label class="user_password"> Password </label>
-            <div>
-              <input class="input_Password" type="password" />
-            </div>
-
-            <div class="flex d-flex justify-content-center pt-5 gap-4">
-              <div class="">
-                <RouterLink
-                  class="nav-link active text-white normal_font"
-                  to="/DashBoard"
-                >
-                  <button class="Login_btn">Login</button>
-                </RouterLink>
+          <form @submit.prevent="authStore.handleLogin(form)">
+            <div class="pad_top_log">
+              <div class="Admin_login"> Login</div>
+              <label class="user_label"> Email </label>
+              <div>
+                <input class="input_User" type="email" v-model="form.email" required/>
+              </div>
+              <label class="user_password"> Password </label>
+              <div>
+                <input class="input_Password" type="password" v-model="form.password" required />
+              </div>
+  
+              <div class="flex d-flex justify-content-center pt-5 gap-4">
+                <div class="">
+                
+                  <button class="Login_btn" type="submit">Login</button>
               </div>
               <div class="">
                 <router-link
@@ -40,6 +47,7 @@ import axios, {isCancel, AxiosError} from 'axios';
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>
