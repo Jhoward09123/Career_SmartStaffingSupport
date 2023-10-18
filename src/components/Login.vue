@@ -6,7 +6,7 @@ import { useAuthStore } from '../stores/auth';
 const authStore = useAuthStore()
 const router = useRouter()
 
-const form = ref({
+const form_data = ref({
   email: '',
   password: ""
 })
@@ -18,7 +18,7 @@ const form = ref({
     <div class="padding_body">
       <div class="login_outside flex d-flex justify-content-center">
         <div class="login_border border border-dark">
-          <form @submit.prevent="authStore.handleLogin(form)">
+          <form @submit.prevent="authStore.handleLogin(form_data)">
             <div class="pad_top_log">
               <div class="Admin_login"> Login</div>
               <label class="user_label"> Email </label>
