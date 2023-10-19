@@ -38,7 +38,7 @@ const form_data = ref({
               <div class="">
                 <router-link
                   class="nav-link active text-white normal_font"
-                  to="/Dashboard"
+                  to="/Sign_up_Admin"
                 >
                   <button @click="closeLogin" class="signUp_btn">
                     Sign Up

@@ -54,7 +54,7 @@ import Table_review from "../Tables/Table_review.vue";
 </template>
 
 <script>
-import Big_table_review from "./big_table/Big_table_review.vue";
+import Big_table_review from "./big_table/Big_table_review_usa.vue";
 import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";

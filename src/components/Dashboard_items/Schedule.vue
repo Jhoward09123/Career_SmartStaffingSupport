@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+
+import Table_shcedule from "../Tables/Table_shcedule.vue";
 </script>
 
 <template>
@@ -82,8 +84,8 @@ import { RouterLink, RouterView } from "vue-router";
           </div>
         </div>
       </div>
-     <!-- table here -->
-     <Table_schedule />
+      <!-- table here -->
+      <Table_shcedule />
     </div>
   </main>
 </template>
@@ -93,7 +95,6 @@ import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-
 </script>
 
 <style></style>
