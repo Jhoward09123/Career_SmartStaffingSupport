@@ -23,11 +23,11 @@ const form_data = ref({
               <div class="Admin_login"> Login</div>
               <label class="user_label"> Email </label>
               <div>
-                <input class="input_User" type="email" v-model="form.email" required/>
+                <input class="input_User" type="email" v-model="form_data.email" required/>
               </div>
               <label class="user_password"> Password </label>
               <div>
-                <input class="input_Password" type="password" v-model="form.password" required />
+                <input class="input_Password" type="password" v-model="form_data.password" required />
               </div>
   
               <div class="flex d-flex justify-content-center pt-5 gap-4">
