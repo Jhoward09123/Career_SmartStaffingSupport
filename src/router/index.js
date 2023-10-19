@@ -80,8 +80,8 @@ const router = createRouter({
     },
 
     {
-      path: "/Sign_up_Admin",
-      name: "Sign_up_Admin",
+      path: "/Sign_up",
+      name: "Sign_up",
 
       component: () => import("../components/Sign_up_Admin.vue"),
     },

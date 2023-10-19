@@ -6,28 +6,35 @@
           <input type="file" class="form-control" id="customFile" />
           <div class="uploadPHOTO text-center">Upload your Photo</div>
 
-          <label class="label_signup"> User </label>
+          <label class="label_signup"> Email </label>
           <div class="input_user">
-            <input class="input_type_signup" type="text" />
+            <input class="input_type_signup" type="email" />
           </div>
           <label class="label_signup"> Password </label>
           <div class="input_user">
-            <input class="input_type_signup" type="text" />
+            <input class="input_type_signup" type="password" />
           </div>
           <label class="label_signup"> Re-Type Password </label>
           <div class="input_user">
-            <input class="input_type_signup" type="text" />
+            <input class="input_type_signup" type="password" />
           </div>
         </div>
       </div>
       <div class="right_border">
-        <select class="form-select_signup" aria-label="Default select example">
-          <option selected>ACCOUNT TYPE</option>
-          <option value="1">HR ADMIN</option>
-          <option value="2">MANAGING DIRECTOR</option>
-          <option value="3">VICE PRESIDENT</option>
-          <option value="3">PRESIDENT</option>
-        </select>
+        <div class="d-flex flex gap-4">
+          <div class="input_user">
+            <input class="first_name" type="text" placeholder="First Name" />
+          </div>
+          <div class="input_user">
+            <input class="last_name" type="text" placeholder=" Last name" />
+          </div>
+        </div>
+        <input class="Middle" type="text" placeholder=" Middle Name" />
+
+        <div class="form-group">
+          <label> Mobile number</label> <br />
+          <input type="tel" class="form-control" id="telephone" />
+        </div>
 
         <div class="button_signup pt-5">
           <button class="btn btn-primary sign_up_btn" type="submit">
@@ -43,9 +50,48 @@
   </div>
 </template>
 
-<script setup></script>
+<script>
+import "intl-tel-input/build/css/intlTelInput.css";
+import "intl-tel-input/build/js/intlTelInput.js";
+import intlTelInput from "intl-tel-input";
+export default {
+  mounted() {
+    const input = document.querySelector("#telephone");
+    intlTelInput(input, {
+      // any initialisation options go here
+      preferredCountries: ["in", "us", "ca"],
+    });
+  },
+};
+</script>
 
 <style>
+.Middle {
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  width: 100%;
+  height: 55px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.first_name,
+.last_name {
+  border-radius: 10px;
+  border: 1px solid #000;
+  width: 316px;
+  height: 55px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .ihavealready_btn {
   background-color: transparent;
   border-style: none;
