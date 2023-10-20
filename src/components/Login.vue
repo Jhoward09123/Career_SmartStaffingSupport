@@ -1,16 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterView, useRouter} from "vue-router";
-import { useAuthStore } from '../stores/auth';
+import { ref } from "vue";
+import { RouterView, useRouter } from "vue-router";
+import { useAuthStore } from "../stores/auth";
 
-const authStore = useAuthStore()
-const router = useRouter()
+const authStore = useAuthStore();
+const router = useRouter();
 
 const form_data = ref({
-  email: '',
-  password: ""
-})
-
+  email: "",
+  password: "",
+});
 </script>
 
 <template>
@@ -20,33 +19,42 @@ const form_data = ref({
         <div class="login_border border border-dark">
           <form @submit.prevent="authStore.handleLogin(form_data)">
             <div class="pad_top_log">
-              <div class="Admin_login"> Login</div>
+              <div class="Admin_login">Login</div>
               <label class="user_label"> Email </label>
               <div>
-                <input class="input_User" type="email" v-model="form.email" required/>
+                <input
+                  class="input_User"
+                  type="email"
+                  v-model="form.email"
+                  required
+                />
               </div>
               <label class="user_password"> Password </label>
               <div>
-                <input class="input_Password" type="password" v-model="form.password" required />
+                <input
+                  class="input_Password"
+                  type="password"
+                  v-model="form.password"
+                  required
+                />
               </div>
-  
+
               <div class="flex d-flex justify-content-center pt-5 gap-4">
                 <div class="">
-                
                   <button class="Login_btn" type="submit">Login</button>
-              </div>
-              <div class="">
-                <router-link
-                  class="nav-link active text-white normal_font"
-                  to="/Sign_up_Admin"
-                >
-                  <button @click="closeLogin" class="signUp_btn">
-                    Sign Up
-                  </button>
-                </router-link>
+                </div>
+                <div class="">
+                  <router-link
+                    class="nav-link active text-white normal_font"
+                    to="/Sign_up_Admin"
+                  >
+                    <button @click="closeLogin" class="signUp_btn">
+                      Sign Up
+                    </button>
+                  </router-link>
+                </div>
               </div>
             </div>
-          </div>
           </form>
         </div>
       </div>

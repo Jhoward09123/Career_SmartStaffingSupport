@@ -13,4 +13,10 @@ import Side_panel from "./components/Side_panel.vue";
   <RouterView />
 </template>
 
-<script></script>
+<script>
+
+</script>
+
+<style>
+
+</style>
