@@ -22,29 +22,13 @@ const form_data = ref({
               <div class="Admin_login">Login</div>
               <label class="user_label"> Email </label>
               <div>
-<<<<<<< HEAD
-                <input
-                  class="input_User"
-                  type="email"
-                  v-model="form.email"
-                  required
-                />
-              </div>
-              <label class="user_password"> Password </label>
-              <div>
-                <input
-                  class="input_Password"
-                  type="password"
-                  v-model="form.password"
-                  required
-                />
-=======
+
                 <input class="input_User" type="email" v-model="form_data.email" required/>
               </div>
               <label class="user_password"> Password </label>
               <div>
                 <input class="input_Password" type="password" v-model="form_data.password" required />
->>>>>>> 74c1fdabe84985d306c32999ecd6bb640bdb599b
+
               </div>
 
               <div class="flex d-flex justify-content-center pt-5 gap-4">
@@ -54,7 +38,7 @@ const form_data = ref({
                 <div class="">
                   <router-link
                     class="nav-link active text-white normal_font"
-                    to="/Sign_up_Admin"
+                    to="/Sign_up"
                   >
                     <button @click="closeLogin" class="signUp_btn">
                       Sign Up
