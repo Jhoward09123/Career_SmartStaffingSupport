@@ -101,6 +101,14 @@ const router = createRouter({
       component: () =>
         import("../components/All_Table/big_table/Big_table_kenya.vue"),
     },
+
+    {
+      path: "/Review/Review_usa_info",
+      name: "Review_usa_info",
+
+      component: () =>
+        import("../components/review_info/Review_usa_info.vue"),
+    },
   ],
 });
 

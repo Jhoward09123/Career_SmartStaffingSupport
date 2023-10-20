@@ -50,7 +50,10 @@
           <td>{{ item.Location }}</td>
           <td>
             <div class="flex d-flex justify-content-center gap-2">
-              <img :src="item.info_icon" alt="Info Icon" />
+              <router-link to="/Review/Review_usa_info">
+                <img :src="item.info_icon" alt="Info Icon" />
+              </router-link>
+
               <img :src="item.Accept_icon" alt="Accept Icon" />
               <img :src="item.Delete_icon" alt="Delete Icon" />
             </div>

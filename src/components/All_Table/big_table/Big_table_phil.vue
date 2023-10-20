@@ -46,7 +46,7 @@
       <div class="table_dash pt-5">
         <div class="flex d-flex">
           <div class="forReview justify-content-left w-50 flex d-flex gap-2">
-            All Review
+            All Review Philippines
 
             <div class="flag">
               <img :src="phil_flag" alt="phil_flag" />

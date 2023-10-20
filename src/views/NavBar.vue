@@ -31,17 +31,17 @@ import { RouterView } from 'vue-router';
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <RouterLink class="nav-link active text-white normal_font" to="/"
-                >Home</RouterLink
+              <router-link class="nav-link active text-white normal_font" to="/"
+                >Home</router-link
               >
             </li>
           </ul>
         </div>
 
         <div>
-          <RouterLink class="" to="/login"
+          <router-link class="" to="/login"
             ><img :src="userImage" alt="User Image"
-          /></RouterLink>
+          /></router-link>
         </div>
       </div>
     </div>
