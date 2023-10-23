@@ -1,5 +1,7 @@
 <script setup>
 import info from "@/assets/Images/info.png";
+import uncheck_Status from "@/assets/Images/review_status/uncheck_Status.svg";
+import check_status from "@/assets/Images/review_status/check_status.svg";
 </script>
 
 <template>
@@ -45,11 +47,15 @@ import info from "@/assets/Images/info.png";
     <div class="main_content height-100 bg-white">
       <div class="Application_info">APPLICANTS INFO</div>
 
-      <div class="progress-bar d-flex flex">
-        <div v-for="(step, index) in steps" :key="index" class="step">
+      <div class="progress-bar gap-4">
+        <div
+          v-for="(step, index) in steps"
+          :key="index"
+          class="step flex d-flex gap-2 "
+        >
           <div class="step-circle">
             <img
-              :src="step.completed ? checkIcon : emptyCircleIcon"
+              :src="step.completed ? check_status : uncheck_Status"
               alt="Step Circle"
             />
           </div>
@@ -57,7 +63,7 @@ import info from "@/assets/Images/info.png";
         </div>
       </div>
       <div class="">
-          <img :src="info" />
+        <img :src="info" />
       </div>
     </div>
   </main>
@@ -67,8 +73,8 @@ import info from "@/assets/Images/info.png";
 export default {
   data() {
     return {
-      checkIcon: "/path/to/check-image.png",
-      emptyCircleIcon: "/path/to/empty-circle-image.png",
+      check_status,
+      uncheck_Status,
       steps: [
         { label: "HR ADMIN", completed: true },
         { label: "Managing Director", completed: true },
@@ -80,12 +86,19 @@ export default {
 };
 </script>
 
-
 <style>
-.Application_info {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  color: black;
+.step-circle {
+  width: 40px;
+  height: 40px;
+}
+
+.step-circle img {
+  width: 100%;
+  height: 100%;
+}
+
+.step-label {
+  margin-top: 10px;
+  font-size: 14px;
 }
 </style>
