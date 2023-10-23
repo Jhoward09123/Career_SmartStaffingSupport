@@ -1,5 +1,5 @@
 <script setup>
-import Side_panel from "../components/Side_panel.vue";
+import Side_panel from "@/components/Side_panel.vue";
 import { RouterLink, RouterView } from "vue-router";
 </script>
 

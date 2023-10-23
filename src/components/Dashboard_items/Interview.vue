@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 
-import Side_panel from "../Side_panel.vue";
+import Side_panel from "@/Side_panel.vue";
 </script>
 
 <template>
@@ -94,7 +94,7 @@ import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
 import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
 import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-import Table_Interview from "../Tables/Table_Interview.vue";
+import Table_Interview from "@/Tables/Table_Interview.vue";
 </script>
 
 <style></style>

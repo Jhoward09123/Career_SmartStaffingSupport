@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 
-import Table_review from "../Tables/Table_review.vue";
+import Table_review from "@/Tables/Table_review.vue";
 </script>
 
 <template>
@@ -105,7 +105,7 @@ import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
 import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
 
 //table
-import Table_application from '../Tables/Table_application.vue'
+import Table_application from '@/Tables/Table_application.vue'
 </script>
 
 <style></style>

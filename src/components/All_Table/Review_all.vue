@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 
-import Table_review from "../Tables/Table_review.vue";
+import Table_review from "@/Tables/Table_review.vue";
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 
-import Table_shcedule from "../Tables/Table_shcedule.vue";
+import Table_shcedule from "@/Tables/Table_shcedule.vue";
 </script>
 
 <template>
