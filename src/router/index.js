@@ -10,7 +10,7 @@ const router = createRouter({
       path: "/",
       name: "home",
       meta: {
-        requireLogin: true
+        requireLogin: true,
       },
       component: () => import("@/views/HomeView.vue"),
     },
@@ -18,7 +18,7 @@ const router = createRouter({
       path: "/home",
       name: "home",
       meta: {
-        requireLogin: true
+        requireLogin: true,
       },
       component: () => import("@/views/HomeView.vue"),
     },
@@ -26,7 +26,7 @@ const router = createRouter({
       path: "/about",
       name: "about",
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/views/AboutView.vue"),
@@ -35,7 +35,7 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       meta: {
-        redirectIfLoggedIn: true
+        redirectIfLoggedIn: true,
       },
 
       component: () => import("@/components/Login.vue"),
@@ -45,7 +45,7 @@ const router = createRouter({
       path: "/DashBoard",
       name: "DashBoard",
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/views/DashBoard.vue"),
@@ -56,7 +56,7 @@ const router = createRouter({
       name: "Applicants",
 
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/components/Dashboard_items/Applicants.vue"),
@@ -66,7 +66,7 @@ const router = createRouter({
       name: "Interview",
 
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/components/Dashboard_items/Interview.vue"),
@@ -76,7 +76,7 @@ const router = createRouter({
       path: "/Schedule",
       name: "Schedule",
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/components/Dashboard_items/Schedule.vue"),
@@ -86,7 +86,7 @@ const router = createRouter({
       path: "/SkillAssesment",
       name: "SkillAssesment",
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () =>
@@ -98,7 +98,7 @@ const router = createRouter({
       name: "Review",
 
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/components/Dashboard_items/Review.vue"),
@@ -108,7 +108,7 @@ const router = createRouter({
       path: "/Review/Review_view_table",
       name: "view_table",
       meta: {
-        requireLogIn: true
+        requireLogIn: true,
       },
 
       component: () => import("@/components/All_Table/Review_all.vue"),
@@ -118,7 +118,7 @@ const router = createRouter({
       path: "/Sign_up",
       name: "Sign_up",
       meta: {
-        redirectIfLoggedIn: true
+        redirectIfLoggedIn: true,
       },
       component: () => import("@/components/Sign_up_Admin.vue"),
     },
@@ -143,49 +143,38 @@ const router = createRouter({
       path: "/Review/Review_usa_info",
       name: "Review_usa_info",
 
-      component: () =>
-        import("@/components/review_info/Review_usa_info.vue"),
+      component: () => import("@/components/review_info/Review_usa_info.vue"),
     },
   ],
 });
 
 router.beforeEach(async (to, _, next) => {
-
-  let is_loggedIn = false
+  let is_loggedIn = false;
 
   try {
-    await axios.get("/sanctum/csrf-cookie")
-    const res = await axios.get('api/user')
+    await axios.get("/sanctum/csrf-cookie");
+    const res = await axios.get("api/user");
 
     console.log(res);
-    is_loggedIn = true
-
+    is_loggedIn = true;
   } catch (error) {
-
-    is_loggedIn = false
-    
+    is_loggedIn = false;
   } finally {
-    
   }
-  
-  
-  if (!is_loggedIn && to.meta.requireLogin == true){
+
+  if (!is_loggedIn && to.meta.requireLogin == true) {
     return next({ name: "Login" });
   }
-  
 
   if (to.meta.redirectIfLoggedIn && is_loggedIn) {
     next({ name: "home" });
   }
 
-
   return next();
-
 });
 
-
 router.afterEach(() => {
-  nextTick(() => { });
+  nextTick(() => {});
 });
 
 export default router;

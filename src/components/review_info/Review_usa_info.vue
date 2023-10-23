@@ -2,6 +2,11 @@
 import info from "@/assets/Images/info.png";
 import uncheck_Status from "@/assets/Images/review_status/uncheck_Status.svg";
 import check_status from "@/assets/Images/review_status/check_status.svg";
+import profile_pic from "@/assets/Images/profile/profile_pic.png";
+
+import facebook_icon from "@/assets/Images/social_icon/facebook.svg";
+import instagram_icon from "@/assets/Images/social_icon/instagram.svg";
+import twitter_icon from "@/assets/Images/social_icon/twitter.svg";
 </script>
 
 <template>
@@ -47,23 +52,104 @@ import check_status from "@/assets/Images/review_status/check_status.svg";
     <div class="main_content height-100 bg-white">
       <div class="Application_info">APPLICANTS INFO</div>
 
-      <div class="progress-bar gap-4">
+      <div class="progress-bar gap-4 mt-5 w-100">
         <div
           v-for="(step, index) in steps"
           :key="index"
-          class="step flex d-flex gap-2 "
+          class="step flex d-flex gap-2"
         >
-          <div class="step-circle">
-            <img
-              :src="step.completed ? check_status : uncheck_Status"
-              alt="Step Circle"
-            />
+          <div class="">
+            <div class="step-circle w-100">
+              <img
+                :src="step.completed ? check_status : uncheck_Status"
+                alt="Step Circle"
+              />
+            </div>
+            <div class="step-label">{{ step.label }}</div>
           </div>
-          <div class="step-label">{{ step.label }}</div>
+          <div v-if="index < 3" class="line-top"></div>
         </div>
       </div>
-      <div class="">
-        <img :src="info" />
+      <div class="progress-bar gap-4 mt-5 w-100">
+        <div class="holder flex d-flex gap-4">
+          <div class="user_profile">
+            <div class="border_profile">
+              <div class="profile_hold">
+                <img :src="profile_pic" alt="profile_pic" />
+              </div>
+              <div class="Email_hold mt-5">john@email.com</div>
+              <div class="Name_hold mt-4">
+                <label class="name_label"> Name: </label>
+                <div class="first_name">john</div>
+                <div class="foursocial_hold gap-4">
+                  <div class="social1">
+                    <img :src="facebook_icon" alt="facebook_icon" />
+                  </div>
+                  <div class="social1">
+                    <img :src="instagram_icon" alt="instagram_icon" />
+                  </div>
+                  <div class="social1">
+                    <img :src="twitter_icon" alt="twitter_icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="more_info">
+            <div class="border_info">
+              <div class="d-flex">
+                <div class="left_info w-50">
+                  <label class="label_info Full_label">Full name:</label>
+                  <div class="Full_name value_info">John</div>
+                </div>
+                <div class="right_info w-50">
+                  <label class="label_info Full_label">Last:</label>
+                  <div class="Full_name value_info">Doe</div>
+                </div>
+              </div>
+              <hr />
+              <div class="email_hold">
+                <label class="label_info Email_label">Email Address:</label>
+                <div class="Full_name value_info">john@email.com</div>
+                <hr />
+              </div>
+              <div class="email_hold">
+                <label class="label_info Email_label">Phone Number:</label>
+                <div class="Full_name value_info">987654321</div>
+                <hr />
+              </div>
+              <div class="d-flex">
+                <div class="left_info w-50">
+                  <label class="label_info Full_label">City:</label>
+                  <div class="Full_name value_info">NAIROBI</div>
+                </div>
+                <div class="right_info w-50">
+                  <label class="label_info Full_label">Country:</label>
+                  <div class="Full_name value_info">KENYA</div>
+                </div>
+              </div>
+              <hr />
+
+              <div class="three_btn flex d-flex justify-content-center gap-4">
+                <div class="download_resume_hold">
+                  <button>Download Resume</button>
+                </div>
+                <div class="view_resume_hold">
+                  <button>View Resume</button>
+                </div>
+                <div class="proceed_hold">
+                  <button>Proceed</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="Status_review">
+            <div class="status_review">
+              <div class="status_label">Status:</div>
+              <div class="status">FOR REVIEW</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -87,6 +173,121 @@ export default {
 </script>
 
 <style>
+.status_label {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  color: #767676;
+}
+.status {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  color: #000;
+}
+
+.three_btn {
+  margin-top: 40px;
+}
+
+.email_hold {
+  text-align: left;
+}
+
+.label_info {
+  color: #767676;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.value_info {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  color: #000;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+.left_info,
+.right_info {
+  text-align: left;
+}
+.first_name {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  color: black;
+}
+
+.name_label,
+.Email_hold {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  color: black;
+}
+
+.social1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foursocial_hold {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.status_review {
+  padding: 25px;
+  width: 240px;
+  height: 126px;
+  border-radius: 30px;
+  border: 1px solid #000;
+}
+
+.border_info {
+  padding: 50px;
+  width: 600px;
+  height: 597px;
+  border-radius: 50px;
+  border: 1px solid #000;
+}
+
+.border_profile {
+  padding: 50px;
+  width: 363px;
+  height: 597px;
+  border-radius: 50px;
+  border: 1px solid #000;
+}
+.app_info_hold {
+  margin-top: 20px;
+}
+
+.Application_info {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  color: black;
+}
+
+.line-top {
+  margin-top: 20px;
+  border-top: 1px solid black;
+  width: 230px;
+}
+
+.progress-bar {
+  flex-direction: row;
+  float: left;
+}
+
 .step-circle {
   width: 40px;
   height: 40px;
@@ -98,6 +299,10 @@ export default {
 }
 
 .step-label {
+  color: black;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
   margin-top: 10px;
   font-size: 14px;
 }
