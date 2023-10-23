@@ -1,89 +1,126 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import AboutView from "../views/AboutView.vue";
-import DashBoard from "../views/DashBoard.vue";
-import Applicants from "../components/Dashboard_items/Applicants.vue";
-import Interview from "../components/Dashboard_items/Interview.vue";
-import Schedule from "../components/Dashboard_items/Schedule.vue";
 
-import SkillAssesment from "../components/Dashboard_items/SkillAssesment.vue";
-import Login from "../components/Login.vue";
-import Review from "../components/Dashboard_items/Review.vue";
+import axios from "axios";
+import { nextTick } from "vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.VUE_APP_BASE_API_URL),
   routes: [
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      meta: {
+        requireLogin: true
+      },
+      component: () => import("@/views/HomeView.vue"),
+    },
+    {
+      path: "/home",
+      name: "home",
+      meta: {
+        requireLogin: true
+      },
+      component: () => import("@/views/HomeView.vue"),
     },
     {
       path: "/about",
       name: "about",
+      meta: {
+        requireLogIn: true
+      },
 
-      component: () => import("../views/AboutView.vue"),
+      component: () => import("@/views/AboutView.vue"),
     },
     {
       path: "/login",
       name: "Login",
+      meta: {
+        redirectIfLoggedIn: true
+      },
 
-      component: () => import("../components/Login.vue"),
+      component: () => import("@/components/Login.vue"),
     },
 
     {
       path: "/DashBoard",
       name: "DashBoard",
+      meta: {
+        requireLogIn: true
+      },
 
-      component: () => import("../views/DashBoard.vue"),
+      component: () => import("@/views/DashBoard.vue"),
     },
 
     {
       path: "/Applicants",
       name: "Applicants",
 
-      component: () => import("../components/Dashboard_items/Applicants.vue"),
+      meta: {
+        requireLogIn: true
+      },
+
+      component: () => import("@/components/Dashboard_items/Applicants.vue"),
     },
     {
       path: "/Interview",
       name: "Interview",
 
-      component: () => import("../components/Dashboard_items/Interview.vue"),
+      meta: {
+        requireLogIn: true
+      },
+
+      component: () => import("@/components/Dashboard_items/Interview.vue"),
     },
 
     {
       path: "/Schedule",
       name: "Schedule",
+      meta: {
+        requireLogIn: true
+      },
 
-      component: () => import("../components/Dashboard_items/Schedule.vue"),
+      component: () => import("@/components/Dashboard_items/Schedule.vue"),
     },
 
     {
       path: "/SkillAssesment",
       name: "SkillAssesment",
+      meta: {
+        requireLogIn: true
+      },
 
       component: () =>
-        import("../components/Dashboard_items/SkillAssesment.vue"),
+        import("@/components/Dashboard_items/SkillAssesment.vue"),
     },
 
     {
       path: "/Review",
       name: "Review",
 
-      component: () => import("../components/Dashboard_items/Review.vue"),
+      meta: {
+        requireLogIn: true
+      },
+
+      component: () => import("@/components/Dashboard_items/Review.vue"),
     },
 
     {
       path: "/Review/Review_view_table",
       name: "view_table",
+      meta: {
+        requireLogIn: true
+      },
 
-      component: () => import("../components/All_Table/Review_all.vue"),
+      component: () => import("@/components/All_Table/Review_all.vue"),
     },
 
     {
       path: "/Sign_up",
       name: "Sign_up",
-
-      component: () => import("../components/Sign_up_Admin.vue"),
+      meta: {
+        redirectIfLoggedIn: true
+      },
+      component: () => import("@/components/Sign_up_Admin.vue"),
     },
 
     {
@@ -91,7 +128,7 @@ const router = createRouter({
       name: "Big_table_phil",
 
       component: () =>
-        import("../components/All_Table/big_table/Big_table_phil.vue"),
+        import("@/components/All_Table/big_table/Big_table_phil.vue"),
     },
 
     {
@@ -99,7 +136,7 @@ const router = createRouter({
       name: "Big_table_kenya",
 
       component: () =>
-        import("../components/All_Table/big_table/Big_table_kenya.vue"),
+        import("@/components/All_Table/big_table/Big_table_kenya.vue"),
     },
 
     {
@@ -107,9 +144,48 @@ const router = createRouter({
       name: "Review_usa_info",
 
       component: () =>
-        import("../components/review_info/Review_usa_info.vue"),
+        import("@/components/review_info/Review_usa_info.vue"),
     },
   ],
+});
+
+router.beforeEach(async (to, _, next) => {
+
+  let is_loggedIn = false
+
+  try {
+    await axios.get("/sanctum/csrf-cookie")
+    const res = await axios.get('api/user')
+
+    console.log(res);
+    is_loggedIn = true
+
+  } catch (error) {
+
+    is_loggedIn = false
+    
+  } finally {
+    
+  }
+  
+  
+  if (!is_loggedIn && to.meta.requireLogin == true){
+    return next({ name: "Login" });
+  }
+  
+
+  if (to.meta.redirectIfLoggedIn && is_loggedIn) {
+    next({ name: "home" });
+  }
+
+
+  return next();
+
+});
+
+
+router.afterEach(() => {
+  nextTick(() => { });
 });
 
 export default router;
