@@ -89,7 +89,7 @@ import Table_review from "../Tables/Table_review.vue";
           </div>
         </router-link>
 
-        <router-link to="/">
+        <router-link to="/Review/Big_table_lebanon">
           <div class="Lebanon_card_review shadow">
             <div class="image_circle pb-3">
               <img :src="lebanon_circle" alt="User Image" />

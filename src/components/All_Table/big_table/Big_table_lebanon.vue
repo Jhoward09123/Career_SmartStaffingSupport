@@ -1,107 +1,153 @@
 <template>
-  <div class="table_dash pt-5">
-    <div class="flex d-flex">
-      <div class="forReview justify-content-left w-50 flex d-flex gap-2">
-        All Review
+  <main class="d-flex">
+    <!-- Sidebar -->
+    <div class="shadow border">
+      <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+          <div>
+            <div class="nav_list">
+              <RouterLink class="nav_link py-2" to="/Dashboard">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Dashboard</span></RouterLink
+              >
+              <RouterLink class="nav_link py-2" to="/Review">
+                <i class="bx bx-grid-alt nav_icon"></i
+                ><span class="nav_name">Review</span>
+              </RouterLink>
+              <RouterLink class="nav_link py-2" to="/Applicants">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Applicants</span></RouterLink
+              >
+              <RouterLink class="nav_link py-2" to="/Schedule">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Schedule</span></RouterLink
+              >
+              <RouterLink class="nav_link py-2" to="/Interview">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Interview</span></RouterLink
+              >
 
-        <div class="flag">
-          <img :src="usa_flag" alt="usa_flag" />
-        </div>
-      </div>
-      <div class="search_dash w-50 gap-4">
-        <label class="Search_text">Search</label>
-        <input v-model="searchQuery" placeholder="" />
-      </div>
-    </div>
-    <table class="table_dashboard table table-bordered rounded text-center">
-      <thead>
-        <tr>
-          <th class="head_review" scope="col">
-            Name
-            <button class="NoBgNoBor" @click="sortByName">
-              <img :src="sort_icon" alt="sort_icon" />
-            </button>
-          </th>
-          <th class="head_review" scope="col">
-            Role
-            <button class="NoBgNoBor" @click="sortByRole">
-              <img :src="sort_icon" alt="sort_icon" />
-            </button>
-          </th>
-          <th class="head_review" scope="col">
-            Category
-            <button class="NoBgNoBor" @click="sortByCategory">
-              <img
-                :src="sort_icon"
-                :class="{ reversed: sortOrder === -1 }"
-                alt="sort_icon"
-              />
-            </button>
-          </th>
-          <th class="head_review" scope="col">Location</th>
-          <th class="head_review" scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in paginatedData" :key="index">
-          <td>{{ item.Name }}</td>
-          <td>{{ item.Role }}</td>
-          <td>{{ item.Category }}</td>
-          <td>{{ item.Location }}</td>
-          <td>
-            <div class="flex d-flex justify-content-center gap-2">
-              <router-link to="/Review/Review_usa_info">
-                <img :src="item.info_icon" alt="Info Icon" />
-              </router-link>
-
-              <img :src="item.Accept_icon" alt="Accept Icon" />
-              <img :src="item.Delete_icon" alt="Delete Icon" />
+              <RouterLink class="nav_link py-2" to="/SkillAssesment">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Skill Assestment</span></RouterLink
+              >
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+        </nav>
+      </div>
+    </div>
 
-    <div class="d-flex gap-4">
-      <div class="w-50">
-        <div class="Status_pages">
-          Page {{ currentPage }} out of
-          {{ Math.ceil(filteredData.length / itemsPerPage) }}
+    <!-- Main Content -->
+    <div class="main_content height-100 bg-white">
+      <div class="review">All APPLICANTS DASHBOARD</div>
+
+      <!-- table here -->
+
+      <div class="table_dash pt-5">
+        <div class="flex d-flex">
+          <div class="forReview justify-content-left w-50 flex d-flex gap-2">
+            All Review Lebanon
+
+            <div class="flag">
+              <img :src="lebanon_flag" alt="lebanon_flag" />
+            </div>
+          </div>
+          <div class="search_dash w-50 gap-4">
+            <label class="Search_text">Search</label>
+            <input v-model="searchQuery" placeholder="" />
+          </div>
+        </div>
+        <table class="table_dashboard table table-bordered rounded text-center">
+          <thead>
+            <tr>
+              <th class="head_review" scope="col">
+                Name
+                <button class="NoBgNoBor" @click="sortByName">
+                  <img :src="sort_icon" alt="sort_icon" />
+                </button>
+              </th>
+              <th class="head_review" scope="col">
+                Role
+                <button class="NoBgNoBor" @click="sortByRole">
+                  <img :src="sort_icon" alt="sort_icon" />
+                </button>
+              </th>
+              <th class="head_review" scope="col">
+                Category
+                <button class="NoBgNoBor" @click="sortByCategory">
+                  <img
+                    :src="sort_icon"
+                    :class="{ reversed: sortOrder === -1 }"
+                    alt="sort_icon"
+                  />
+                </button>
+              </th>
+              <th class="head_review" scope="col">Location</th>
+              <th class="head_review" scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in paginatedData" :key="index">
+              <td>{{ item.Name }}</td>
+              <td>{{ item.Role }}</td>
+              <td>{{ item.Category }}</td>
+              <td>{{ item.Location }}</td>
+              <td>
+                <div class="flex d-flex justify-content-center gap-2">
+                  <img :src="item.info_icon" alt="Info Icon" />
+                  <img :src="item.Accept_icon" alt="Accept Icon" />
+                  <img :src="item.Delete_icon" alt="Delete Icon" />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex gap-4">
+          <div class="w-50">
+            <div class="Status_pages">
+              Page {{ currentPage }} out of
+              {{ Math.ceil(filteredData.length / itemsPerPage) }}
+            </div>
+          </div>
+          <div class="w-50 d-flex justify-content-end gap-4">
+            <select v-model="currentPage">
+              <option
+                v-for="page in totalPageOptions"
+                :key="page"
+                :value="page"
+              >
+                {{ page }}
+              </option>
+            </select>
+
+            <button
+              @click="previousPage"
+              :disabled="currentPage === 1"
+              class="NoBgNoBor"
+            >
+              <img :src="Previous_icon" alt="Previous_icon" />
+            </button>
+
+            <!-- Next Button -->
+            <button
+              class="NoBgNoBor"
+              @click="nextPage"
+              :disabled="currentPage === totalPages"
+            >
+              <img :src="Next_icon" alt="Next_icon" />
+            </button>
+          </div>
+
+          <!-- Page Selector Dropdown -->
         </div>
       </div>
-      <div class="w-50 d-flex justify-content-end gap-4">
-        <select v-model="currentPage">
-          <option v-for="page in totalPageOptions" :key="page" :value="page">
-            {{ page }}
-          </option>
-        </select>
-
-        <button
-          @click="previousPage"
-          :disabled="currentPage === 1"
-          class="NoBgNoBor"
-        >
-          <img :src="Previous_icon" alt="Previous_icon" />
-        </button>
-
-        <!-- Next Button -->
-        <button
-          class="NoBgNoBor"
-          @click="nextPage"
-          :disabled="currentPage === totalPages"
-        >
-          <img :src="Next_icon" alt="Next_icon" />
-        </button>
-      </div>
-
-      <!-- Page Selector Dropdown -->
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import usa_flag from "@/assets/Images/flag_only/usa_flag.png";
+import lebanon_flag from "@/assets/Images/flag_only/lebanon_flag.png";
 import sort_icon from "@/assets/Images/table_icons/sort-solid 1.svg";
 import Next_icon from "@/assets/Images/table_icons/Next.svg";
 import Previous_icon from "@/assets/Images/table_icons/previous.svg";
