@@ -7,6 +7,8 @@ import profile_pic from "@/assets/Images/profile/profile_pic.png";
 import facebook_icon from "@/assets/Images/social_icon/facebook.svg";
 import instagram_icon from "@/assets/Images/social_icon/instagram.svg";
 import twitter_icon from "@/assets/Images/social_icon/twitter.svg";
+
+import download_icon from "@/assets/Images/review_status/download_icon.svg";
 </script>
 
 <template>
@@ -50,7 +52,12 @@ import twitter_icon from "@/assets/Images/social_icon/twitter.svg";
 
     <!-- Main Content -->
     <div class="main_content height-100 bg-white">
-      <div class="Application_info">APPLICANTS INFO</div>
+      <div class="d-flex w-100">
+        <div class="Application_info w-50">APPLICANTS INFO</div>
+        <div class="backBtn_hold w-50">
+          <button class="back_btn">Back</button>
+        </div>
+      </div>
 
       <div class="progress-bar gap-4 mt-5 w-100">
         <div
@@ -92,6 +99,9 @@ import twitter_icon from "@/assets/Images/social_icon/twitter.svg";
                     <img :src="twitter_icon" alt="twitter_icon" />
                   </div>
                 </div>
+                <div class="decline_hold">
+                  <button class="decline_btn">Decline</button>
+                </div>
               </div>
             </div>
           </div>
@@ -130,15 +140,20 @@ import twitter_icon from "@/assets/Images/social_icon/twitter.svg";
               </div>
               <hr />
 
-              <div class="three_btn flex d-flex justify-content-center gap-4">
+              <div class="three_btn flex d-flex justify-content-center gap-3">
                 <div class="download_resume_hold">
-                  <button>Download Resume</button>
+                  <button class="Download_Resume d-flex gap-2">
+                    <div>Download Resume</div>
+                    <div class="">
+                      <img :src="download_icon" width="20" height="20" />
+                    </div>
+                  </button>
                 </div>
                 <div class="view_resume_hold">
-                  <button>View Resume</button>
+                  <button class="View_Resume">View Resume</button>
                 </div>
                 <div class="proceed_hold">
-                  <button>Proceed</button>
+                  <button class="Proceed_btn">Proceed</button>
                 </div>
               </div>
             </div>
@@ -173,6 +188,69 @@ export default {
 </script>
 
 <style>
+.decline_hold {
+  margin-top: 20px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+.decline_btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.backBtn_hold {
+  padding-right: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back_btn {
+  background: none;
+  border: 1px solid black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  background: #040c53;
+  color: white;
+}
+
+.View_Resume {
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.Download_Resume {
+  color: white;
+  padding: 10px 15px;
+  border-style: none;
+  border-radius: 10px;
+  background: #040c53;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.Proceed_btn {
+  color: white;
+  padding: 10px 20px;
+  border-style: none;
+  border-radius: 10px;
+  background: var(--Green, #092);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
 .status_label {
   font-size: 24px;
   font-style: normal;
@@ -187,7 +265,7 @@ export default {
 }
 
 .three_btn {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .email_hold {
@@ -246,7 +324,7 @@ hr.solid {
 .status_review {
   padding: 25px;
   width: 240px;
-  height: 126px;
+  height: auto;
   border-radius: 30px;
   border: 1px solid #000;
 }
@@ -254,7 +332,7 @@ hr.solid {
 .border_info {
   padding: 50px;
   width: 600px;
-  height: 597px;
+  height: auto;
   border-radius: 50px;
   border: 1px solid #000;
 }
@@ -262,7 +340,7 @@ hr.solid {
 .border_profile {
   padding: 50px;
   width: 363px;
-  height: 597px;
+  height: auto;
   border-radius: 50px;
   border: 1px solid #000;
 }
