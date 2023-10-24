@@ -54,7 +54,7 @@ import Table_review from "../Tables/Table_review.vue";
     <div class="main_content height-100 bg-white">
       <div class="review">REVIEW APPLICANTS DASHBOARD</div>
       <div class="cards_hold flex d-flex justify-content-left gap-5 pt-3">
-        <router-link to="/Review/Review_view_table">
+        <router-link to="/Review/Review_all_usa">
           <div class="usa_card_review shadow">
             <div class="image_circle pb-3">
               <img :src="usa_circle" alt="User Image" />

@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import Big_table_review from "../All_Table/big_table/Big_table_review_usa.vue";
 
-import Table_review from "@/Tables/Table_review.vue";
 </script>
 
 <template>
@@ -43,7 +43,6 @@ import Table_review from "@/Tables/Table_review.vue";
       </div>
     </div>
 
-    <!-- Main Content -->
     <div class="main_content height-100 bg-white">
       <div class="review">All APPLICANTS DASHBOARD</div>
 
@@ -52,13 +51,3 @@ import Table_review from "@/Tables/Table_review.vue";
     </div>
   </main>
 </template>
-
-<script>
-import Big_table_review from "./big_table/Big_table_review_usa.vue";
-import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
-import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
-import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
-import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-</script>
-
-<style></style>

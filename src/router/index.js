@@ -58,8 +58,8 @@ const router = createRouter({
       meta: {
         requireLogIn: true,
       },
-        component: () => import("../components/Dashboard_items/Applicants.vue")
-      // component: () => import("@/components/Dashboard_items/Applicants.vue"),
+
+      component: () => import("@/components/Dashboard_items/Applicants.vue"),
     },
     {
       path: "/Interview",
@@ -114,15 +114,16 @@ const router = createRouter({
       component: () => import("@/components/All_Table/Review_all.vue"),
     },
 
-    // {
-    //   path: "/Sign_up",
-    //   name: "Sign_up",
-    //   // meta: {
-    //   //   redirectIfLoggedIn: true,
-    //   // },
-    //   component: () => import("@/components/Sign_up_Admin.vue"),
-    // },
+    {
+      path: "/Review/Review_all_usa",
+      name: "Review_all_usa",
+      meta: {
+        requireLogIn: true,
+      },
 
+      component: () => import("@/components/All_Table/Review_all.vue"),
+     
+    },
 
     {
       path: "/Sign_up",
@@ -131,7 +132,6 @@ const router = createRouter({
         redirectIfLoggedIn: true,
       },
       component: () => import("@/components/Sign_up.vue"),
-     
     },
 
     {
@@ -148,6 +148,7 @@ const router = createRouter({
 
       component: () =>
         import("@/components/All_Table/big_table/Big_table_kenya.vue"),
+
     },
 
     {
