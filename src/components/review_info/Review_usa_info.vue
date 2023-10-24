@@ -9,6 +9,8 @@ import instagram_icon from "@/assets/Images/social_icon/instagram.svg";
 import twitter_icon from "@/assets/Images/social_icon/twitter.svg";
 
 import download_icon from "@/assets/Images/review_status/download_icon.svg";
+
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
@@ -84,7 +86,7 @@ import download_icon from "@/assets/Images/review_status/download_icon.svg";
               <div class="profile_hold">
                 <img :src="profile_pic" alt="profile_pic" />
               </div>
-              <div class="Email_hold mt-5">john@email.com</div>
+              <div class="Email_hold mt-4">john@email.com</div>
               <div class="Name_hold mt-4">
                 <label class="name_label"> Name: </label>
                 <div class="first_name">john</div>

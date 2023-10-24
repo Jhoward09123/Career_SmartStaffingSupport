@@ -58,8 +58,8 @@ const router = createRouter({
       meta: {
         requireLogIn: true,
       },
-
-      component: () => import("@/components/Dashboard_items/Applicants.vue"),
+        component: () => import("../components/Dashboard_items/Applicants.vue")
+      // component: () => import("@/components/Dashboard_items/Applicants.vue"),
     },
     {
       path: "/Interview",

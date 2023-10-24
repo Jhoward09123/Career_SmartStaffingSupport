@@ -1,7 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 
-import Side_panel from "@/Side_panel.vue";
+import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
+import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
+import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
+import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
+
+// import Table_review from "@/Tables/Table_review.vue";
+
+import Table_review from "../Tables/Table_review.vue";
 </script>
 
 <template>
@@ -101,14 +108,7 @@ import Side_panel from "@/Side_panel.vue";
   </main>
 </template>
 
-<script>
-import kenya_circle from "@/assets/Images/flag_circle/kenya circle.png";
-import lebanon_circle from "@/assets/Images/flag_circle/lebanon_circle.png";
-import philipine_circle from "@/assets/Images/flag_circle/philipine_circle.png";
-import usa_circle from "@/assets/Images/flag_circle/usa_circle.png";
-
-import Table_review from "@/Tables/Table_review.vue";
-</script>
+<script></script>
 
 <style>
 .review {
