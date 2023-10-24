@@ -114,13 +114,24 @@ const router = createRouter({
       component: () => import("@/components/All_Table/Review_all.vue"),
     },
 
+    // {
+    //   path: "/Sign_up",
+    //   name: "Sign_up",
+    //   // meta: {
+    //   //   redirectIfLoggedIn: true,
+    //   // },
+    //   component: () => import("@/components/Sign_up_Admin.vue"),
+    // },
+
+
     {
       path: "/Sign_up",
       name: "Sign_up",
       meta: {
         redirectIfLoggedIn: true,
       },
-      component: () => import("@/components/Sign_up_Admin.vue"),
+      component: () => import("@/components/Sign_up.vue"),
+     
     },
 
     {

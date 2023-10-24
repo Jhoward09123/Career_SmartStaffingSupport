@@ -1,36 +1,34 @@
 <script setup>
-  import { ref } from "vue";
-  import { RouterView, useRouter } from "vue-router";
-  import { useAuthStore } from "@/stores/auth";
+import { ref } from "vue";
+import { RouterView, useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/auth";
 
-  const authStore = useAuthStore();
-  const router = useRouter();
+const authStore = useAuthStore();
+const router = useRouter();
 
-  const form_data = ref({
-    first_name: "",
-    fname: "",
-    mname: "",
-    lname: "",
-    phone: "",
-    alt_phone: "",
-    email: "",
-    alt_email: "",
-    address: "",
-    city: "",
-    state_id: "",
-    zip_code: "",
-    country_id: "",
-    photo_url: "",
-    job_category_id: "",
-    profession_id: "",
-    contract_type_id: "",
-    dob: "",
-    password: "",
-    password_confirmation: ""
-  });
-
+const form_data = ref({
+  first_name: "",
+  fname: "",
+  mname: "",
+  lname: "",
+  phone: "",
+  alt_phone: "",
+  email: "",
+  alt_email: "",
+  address: "",
+  city: "",
+  state_id: "",
+  zip_code: "",
+  country_id: "",
+  photo_url: "",
+  job_category_id: "",
+  profession_id: "",
+  contract_type_id: "",
+  dob: "",
+  password: "",
+  password_confirmation: "",
+});
 </script>
-
 <template>
   <div class="head_register d-flex flex justify-content-center">
     REGISTER JOB PORTAL
@@ -40,78 +38,112 @@
       <div class="twocard flex d-flex gap-4">
         <div class="left_border">
           <div class="inside">
-            <input type="file" class="form-control file_input" id="customFile" />
+            <input
+              type="file"
+              class="form-control file_input"
+              id="customFile"
+            />
             <div class="uploadPHOTO text-center">Upload your Photo</div>
             <label class="label_signup mt-4"> Email </label>
             <div class="input_user">
-              <input class="input_type_signup" type="email" v-model="form_data.email" required/>
+              <input
+                class="input_type_signup"
+                type="email"
+                v-model="form_data.email"
+                required
+              />
             </div>
             <label class="label_signup"> Password </label>
             <div class="input_user">
-              <input class="input_type_signup" type="password" v-model="form_data.password" required/>
+              <input
+                class="input_type_signup"
+                type="password"
+                v-model="form_data.password"
+                required
+              />
             </div>
             <label class="label_signup"> Re-Type Password </label>
             <div class="input_user">
-              <input class="input_type_signup" type="password" v-model="form_data.password_confirmation" required/>
+              <input
+                class="input_type_signup"
+                type="password"
+                v-model="form_data.password_confirmation"
+                required
+              />
             </div>
           </div>
         </div>
         <div class="right_border">
           <div class="d-flex flex gap-4 w-100">
             <div class="input_user w-50">
+              <label class="info_label">First Name</label>
               <input
                 class="first_name w-100"
                 type="text"
-                placeholder="First Name"
-                v-model="form_data.fname" required
+                v-model="form_data.fname"
+                required
               />
             </div>
             <div class="input_user w-50">
+              <label class="info_label">Last name </label>
               <input
                 class="last_name w-100"
                 type="text"
-                placeholder=" Last name"
-                v-model="form_data.lname" required
+                v-model="form_data.lname"
+                required
               />
             </div>
           </div>
-          <input class="Middle" type="text" placeholder=" Middle Name" v-model="form_data.mname" />
-  
-          <div class="mobile_flex d-flex flex gap-4 mt-3 w-100">
+          <label class="info_label space_20px_top">Middle Name </label>
+          <input class="Middle" type="text" v-model="form_data.mname" />
+
+          <div class="mobile_flex d-flex flex gap-4 space_20px_top w-100">
             <div class="mobile_left w-50">
-              <div class="form-group">
-                <label> Mobile number</label> <br />
-                <input type="tel" class="form-control w-100 telephone" id="phone" v-model="form_data.phone" required/>
+              <div class="form-group w-100">
+                <label class="info_label">Mobile Number </label> <br />
+                <input type="tel" class="form-control w-100" id="telephone" />
               </div>
             </div>
             <div class="mobile_right w-50">
-              <div class="form-group">
-                <label>2nd Number (Optional)</label> <br />
-                <input type="tel" class="form-control w-100 telephone" id="alt_phone" v-model="form_data.alt_phone" />
+              <div class="form-group w-100">
+                <label class="info_label">2nd Number (Optional) </label> <br />
+                <input
+                  type="tel"
+                  class="form-control w-100 telephone"
+                  id="alt_phone"
+                />
               </div>
             </div>
           </div>
-  
-          <div class="address_hold mt-2">
-            <input class="address_input" type="text" placeholder="Addresss" v-model="form_data.address" required/>
+
+          <div class="address_hold space_20px_top">
+            <label class="info_label">Address</label> <br />
+            <input
+              class="address_input"
+              type="text"
+              v-model="form_data.address"
+              required
+            />
           </div>
-  
+
           <div class="date_birth_hold mt-3">
-            <label>Birth Date</label>
+            <label class="info_label">Birth Date</label> <br />
             <div class="date_input">
               <input
                 class="calender_birth_Date w-100"
                 type="date"
                 id="birthday"
                 placeholder=""
-                v-model="form_data.dob" required
+                v-model="form_data.dob"
+                required
               />
             </div>
             <!-- <VueDatePicker v-model="date" class="calender_birth_Date border border-dark"></VueDatePicker> -->
           </div>
-  
+
           <div class="count_city_hold flex d-flex gap-4 mt-4 w-100">
             <div class="left_count w-50">
+              <label class="info_label">Country</label> <br />
               <select class="country_select">
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Åland Islands</option>
@@ -164,7 +196,9 @@
                 <option value="CO">Colombia</option>
                 <option value="KM">Comoros</option>
                 <option value="CG">Congo</option>
-                <option value="CD">Congo, the Democratic Republic of the</option>
+                <option value="CD">
+                  Congo, the Democratic Republic of the
+                </option>
                 <option value="CK">Cook Islands</option>
                 <option value="CR">Costa Rica</option>
                 <option value="CI">Côte d'Ivoire</option>
@@ -230,7 +264,9 @@
                 <option value="KZ">Kazakhstan</option>
                 <option value="KE">Kenya</option>
                 <option value="KI">Kiribati</option>
-                <option value="KP">Korea, Democratic People's Republic of</option>
+                <option value="KP">
+                  Korea, Democratic People's Republic of
+                </option>
                 <option value="KR">Korea, Republic of</option>
                 <option value="KW">Kuwait</option>
                 <option value="KG">Kyrgyzstan</option>
@@ -371,29 +407,53 @@
               </select>
             </div>
             <div class="right_count w-50">
-              <input class="city_type" type="text" placeholder="City" v-model="form_data.city" required/>
+              <label class="info_label">City</label> <br />
+              <input
+                class="city_type"
+                type="text"
+                v-model="form_data.city"
+                required
+              />
             </div>
           </div>
-  
+
+          <div class="count_city_hold flex d-flex gap-4 mt-4 w-100">
+            <div class="left_count w-50">
+              <label class="info_label">Contract Types:</label> <br />
+              <select class="select_job_preference">
+                <option>Full-Time</option>
+                <option>Part-time</option>
+              </select>
+            </div>
+            <div class="right_count w-50">
+              <label class="info_label">Job category:</label> <br />
+              <select class="select_job_preference">
+                <option>Hybrid</option>
+                <option>On site</option>
+                <option>Remote</option>
+              </select>
+            </div>
+          </div>
+
           <!-- Make use of select -->
-          <div class="job_preference mt-4"> 
+          <div class="job_preference mt-4">
+            <label class="info_label">Profession:</label> <br />
             <select class="select_job_preference">
-              <option>--Job Preference--</option>
-              <option>Remote</option>
-              <option>Full-Time</option>
-              <option>Part-time</option>
+              <option>Accountant</option>
+              <option>IT</option>
+              <option>Sales Representative</option>
             </select>
           </div>
-  
+
           <br />
           <hr />
-  
+
           <div class="button_signup pt-4">
             <button class="btn btn-primary sign_up_btn" type="submit">
               Sign up
             </button>
           </div>
-  
+
           <div class="flex d-flex justify-content-center alreadyaccount pt-5">
             <button class="ihavealready_btn">I have already an Account</button>
           </div>
@@ -404,32 +464,34 @@
 </template>
 
 <script>
-import VueDatePicker from "@/vuepic/vue-datepicker";
-import "@/vuepic/vue-datepicker/dist/main.css";
-
+//intlTelInput
 import "intl-tel-input/build/css/intlTelInput.css";
 import "intl-tel-input/build/js/intlTelInput.js";
 import intlTelInput from "intl-tel-input";
+
 export default {
   mounted() {
-    const input = document.querySelector(".telephone");
+    const input = document.querySelector("#telephone");
     intlTelInput(input, {
       // any initialisation options go here
       preferredCountries: ["us"],
     });
   },
-  data() {
-    return {
-      value: "",
-      date: null,
-    };
-  },
-  methods: {},
-  components: { VueDatePicker },
 };
 </script>
 
 <style>
+.space_20px_top {
+  margin-top: 20px;
+}
+.info_label {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: black;
+}
+
 .file_input {
   height: 46px !important;
 }
@@ -487,7 +549,7 @@ export default {
   font-weight: 500;
   padding-left: 10px;
   padding-right: 10px;
-  color: #686868;
+  color: #000000;
 }
 
 /* mobile_input */
@@ -505,7 +567,6 @@ export default {
 
 .Middle,
 .address_input {
-  margin-top: 20px;
   border-radius: 10px;
   border: 1px solid #000;
   width: 100%;
