@@ -1,10 +1,15 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { ref } from "vue";
+import { RouterView, useRouter, RouterLink } from "vue-router";
+import { useAuthStore } from "@/stores/auth";
+
+const authStore = useAuthStore();
+const router = useRouter();
 </script>
 
 <template>
   <div class="l-navbar" id="nav-bar">
-    <nav class="nav">
+    <nav class="nav_as">
       <div>
         <div class="nav_list">
           <RouterLink class="nav_link py-2" to="/Dashboard">
@@ -35,6 +40,12 @@ import { RouterLink, RouterView } from "vue-router";
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Skill Assestment</span></RouterLink
           >
+          <div class="border_space_20margin"></div>
+          <div class="btn_logout_hold">
+            <button @click="authStore.handleLogOut" class="nav_name btn_logout">
+              Log out
+            </button>
+          </div>
         </div>
       </div>
     </nav>
@@ -42,6 +53,21 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style>
+.border_space_20margin {
+  border-top: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn_logout_hold {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.btn_logout {
+  background-color: white;
+  border-style: none;
+}
 .nav_name {
   display: flex;
   align-items: center;

@@ -122,7 +122,6 @@ const router = createRouter({
       },
 
       component: () => import("@/components/All_Table/Review_all.vue"),
-     
     },
 
     {
@@ -148,7 +147,6 @@ const router = createRouter({
 
       component: () =>
         import("@/components/All_Table/big_table/Big_table_kenya.vue"),
-
     },
 
     {
@@ -157,10 +155,8 @@ const router = createRouter({
 
       component: () =>
         import("@/components/All_Table/big_table/Big_table_lebanon.vue"),
-
     },
 
-  
     {
       path: "/Review/Review_usa_info",
       name: "Review_usa_info",

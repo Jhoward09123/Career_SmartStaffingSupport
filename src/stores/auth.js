@@ -24,7 +24,12 @@ export const useAuthStore = defineStore ("auth", {
                 email: form.email,
                 password: form.password
             })
-            this.router.push("/")
+            this.router.push("/DashBoard")
+        },
+        async handleLogOut() {
+            await this.getToken()
+            await axios.post('/logout',{})
+            this.router.push("/Login")
         },
         async handleSignup(form_data) {
             await this.getToken()
@@ -51,7 +56,7 @@ export const useAuthStore = defineStore ("auth", {
                 password: form_data.password,
                 password_confirmation: form_data.password_confirmation
             })
-            this.router.push({name: 'home'})
+            this.router.push({name: 'DashBoard'})
         },
 
         
