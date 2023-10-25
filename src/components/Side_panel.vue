@@ -35,13 +35,21 @@ const router = useRouter();
             <i class="bx bx-grid-alt nav_icon"></i>
             <span class="nav_name">Interview</span></RouterLink
           >
+          <div class="btn_logout_hold mb-3">
+            <button
+              @click="authStore.handleLogOut"
+              class="nav_name btn_sidebar"
+            >
+              Job Management
+            </button>
+          </div>
 
           <RouterLink class="nav_link py-2" to="/SkillAssesment">
             <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">Skill Assestment</span></RouterLink
+            <span class="nav_name">Skill Assesment</span></RouterLink
           >
           <div class="border_space_20margin"></div>
-          <div class="btn_logout_hold">
+          <div class="btn_logout_hold margin_top">
             <button @click="authStore.handleLogOut" class="nav_name btn_logout">
               Log out
             </button>
@@ -53,6 +61,11 @@ const router = useRouter();
 </template>
 
 <style>
+.btn_sidebar {
+  background-color: transparent;
+  border-style: none;
+}
+
 .border_space_20margin {
   border-top: 1px solid black;
   margin-top: 20px;
@@ -67,6 +80,10 @@ const router = useRouter();
 .btn_logout {
   background-color: white;
   border-style: none;
+  padding: 10px 20px;
+  background-color: gray;
+  color: #fff;
+  border-radius: 10px;
 }
 .nav_name {
   display: flex;
