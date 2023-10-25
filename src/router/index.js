@@ -51,6 +51,8 @@ const router = createRouter({
       component: () => import("@/views/DashBoard.vue"),
     },
 
+    //Dashboard items
+
     {
       path: "/Applicants",
       name: "Applicants",
@@ -103,6 +105,19 @@ const router = createRouter({
 
       component: () => import("@/components/Dashboard_items/Review.vue"),
     },
+
+    {
+      path: "/Job_Management",
+      name: "Job_Management",
+
+      meta: {
+        requireLogIn: true,
+      },
+
+      component: () => import("@/components/Dashboard_items/Job_Management.vue"),
+    },
+
+    //All table view all table
 
     {
       path: "/Review/Review_view_table",

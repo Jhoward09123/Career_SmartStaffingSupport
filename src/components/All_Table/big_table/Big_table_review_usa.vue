@@ -3,7 +3,6 @@
     <div class="flex d-flex">
       <div class="forReview justify-content-left w-50 flex d-flex gap-2">
         All Review
-
         <div class="flag">
           <img :src="usa_flag" alt="usa_flag" />
         </div>
@@ -93,7 +92,6 @@
           <img :src="Next_icon" alt="Next_icon" />
         </button>
       </div>
-
       <!-- Page Selector Dropdown -->
     </div>
   </div>
@@ -124,163 +122,181 @@ export default {
       //data
       baseData: [
         {
-          Name: "John Doe",
-          Role: "Developer",
-          Category: "Full-Time",
-          Location: "USA",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Alice Johnson",
-          Role: "Designer",
-          Category: "Part-Time",
-          Location: "Canada",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Bob Smith",
-          Role: "Manager",
-          Category: "Part-Time",
-          Location: "UK",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Bob Smith",
-          Role: "Manager",
-          Category: "Remote",
-          Location: "UK",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Bob Smith",
-          Role: "Manager",
-          Category: "Remote",
-          Location: "UK",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Alice Johnson",
-          Role: "Developer",
-          Category: "Full-time",
-          Location: "USA",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "David Brown",
-          Role: "Designer",
-          Category: "Part-Time",
-          Location: "Canada",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Ella Wilson",
-          Role: "Project Manager",
-          Category: "Remote",
-          Location: "Australia",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-
-        {
-          Name: "John Davis",
+          Name: "Sarah Johnson",
           Role: "Software Engineer",
           Category: "Full-time",
-          Location: "Germany",
+          Location: "USA",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Olivia Taylor",
-          Role: "Marketing Specialist",
+          Name: "Juan Rodriguez",
+          Role: "Graphic Designer",
           Category: "Part-Time",
-          Location: "France",
+          Location: "PHILIPPINES",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Michael Lee",
-          Role: "Data Analyst",
-          Category: "Remote",
-          Location: "Japan",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-
-        {
-          Name: "Sophia Harris",
-          Role: "Sales Representative",
+          Name: "Eliud Kipchoge",
+          Role: "Marathon Runner",
           Category: "Full-time",
-          Location: "Spain",
+          Location: "KENYA",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "William Clark",
-          Role: "HR Coordinator",
-          Category: "Part-Time",
-          Location: "Brazil",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-
-        {
-          Name: "Ava Martinez",
-          Role: "Customer Support",
+          Name: "Layla Hassan",
+          Role: "Software Developer",
           Category: "Remote",
-          Location: "India",
+          Location: "LEBANON",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "James Thomas",
+          Name: "Michael Johnson",
           Role: "Product Manager",
           Category: "Full-time",
-          Location: "New Zealand",
+          Location: "USA",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Mia White",
-          Role: "Content Writer",
+          Name: "Maria Gonzales",
+          Role: "Customer Support",
           Category: "Part-Time",
-          Location: "South Africa",
+          Location: "PHILIPPINES",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Benjamin Turner",
-          Role: "QA Tester",
-          Category: "Remote",
-          Location: "Mexico",
+          Name: "Ezekiel Kamau",
+          Role: "Software Engineer",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Lina Nassar",
+          Role: "Marketing Specialist",
+          Category: "Part-Time",
+          Location: "LEBANON",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "John Smith",
+          Role: "Project Manager",
+          Category: "Full-time",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Andres Ramos",
+          Role: "Designer",
+          Category: "Part-Time",
+          Location: "PHILIPPINES",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Wangari Maathai",
+          Role: "Environmental Activist",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Karim Khalil",
+          Role: "UX Designer",
+          Category: "Part-Time",
+          Location: "LEBANON",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Michael Johnson",
+          Role: "Product Manager",
+          Category: "Full-time",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Maria Gonzales",
+          Role: "Customer Support",
+          Category: "Part-Time",
+          Location: "PHILIPPINES",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Ezekiel Kamau",
+          Role: "Software Engineer",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Lina Nassar",
+          Role: "Marketing Specialist",
+          Category: "Part-Time",
+          Location: "LEBANON",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "John Smith",
+          Role: "Project Manager",
+          Category: "Full-time",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Andres Ramos",
+          Role: "Designer",
+          Category: "Part-Time",
+          Location: "PHILIPPINES",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Wangari Maathai",
+          Role: "Environmental Activist",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Karim Khalil",
+          Role: "UX Designer",
+          Category: "Part-Time",
+          Location: "LEBANON",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
@@ -295,7 +311,8 @@ export default {
     filteredData() {
       const query = this.searchQuery.toLowerCase().trim();
       if (!query) {
-        return this.baseData; // Return all data if query is empty
+        return this.baseData.filter((item) => item.Location === "USA");
+        // return this.baseData;
       }
 
       return this.baseData.filter((item) => {
@@ -306,7 +323,7 @@ export default {
         return (
           name.includes(query) ||
           role.includes(query) ||
-          location.includes(query)
+          (location.includes(query) && item.Location === "USA")
         );
       });
     },

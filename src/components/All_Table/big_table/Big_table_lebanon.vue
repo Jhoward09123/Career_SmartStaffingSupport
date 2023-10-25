@@ -4,53 +4,56 @@
     <div class="shadow border">
       <div class="l-navbar" id="nav-bar">
         <nav class="nav_as">
-      <div>
-        <div class="nav_list">
-          <RouterLink class="nav_link py-2" to="/Dashboard">
-            <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">Dashboard</span></RouterLink
-          >
-          <RouterLink class="nav_link py-2" to="/Review">
-            <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">
-              Review
-              <span class="notification">2</span>
-            </span>
-          </RouterLink>
-          <RouterLink class="nav_link py-2" to="/Applicants">
-            <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">Applicants</span></RouterLink
-          >
-          <RouterLink class="nav_link py-2" to="/Schedule">
-            <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">Schedule</span></RouterLink
-          >
-          <RouterLink class="nav_link py-2" to="/Interview">
-            <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">Interview</span></RouterLink
-          >
-          <div class="btn_logout_hold mb-3">
-            <button
-              @click="authStore.handleLogOut"
-              class="nav_name btn_sidebar"
-            >
-              Job Management
-            </button>
-          </div>
+          <div>
+            <div class="nav_list">
+              <RouterLink class="nav_link py-2" to="/Dashboard">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Dashboard</span></RouterLink
+              >
+              <RouterLink class="nav_link py-2" to="/Review">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">
+                  Review
+                  <span class="notification">2</span>
+                </span>
+              </RouterLink>
+              <RouterLink class="nav_link py-2" to="/Applicants">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Applicants</span></RouterLink
+              >
+              <RouterLink class="nav_link py-2" to="/Schedule">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Schedule</span></RouterLink
+              >
+              <RouterLink class="nav_link py-2" to="/Interview">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Interview</span></RouterLink
+              >
+              <div class="btn_logout_hold mb-3">
+                <button
+                  @click="authStore.handleLogOut"
+                  class="nav_name btn_sidebar"
+                >
+                  Job Management
+                </button>
+              </div>
 
-          <RouterLink class="nav_link py-2" to="/SkillAssesment">
-            <i class="bx bx-grid-alt nav_icon"></i>
-            <span class="nav_name">Skill Assesment</span></RouterLink
-          >
-          <div class="border_space_20margin"></div>
-          <div class="btn_logout_hold margin_top">
-            <button @click="authStore.handleLogOut" class="nav_name btn_logout">
-              Log out
-            </button>
+              <RouterLink class="nav_link py-2" to="/SkillAssesment">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Skill Assesment</span></RouterLink
+              >
+              <div class="border_space_20margin"></div>
+              <div class="btn_logout_hold margin_top">
+                <button
+                  @click="authStore.handleLogOut"
+                  class="nav_name btn_logout"
+                >
+                  Log out
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </nav>
+        </nav>
       </div>
     </div>
 
@@ -187,163 +190,181 @@ export default {
       //data
       baseData: [
         {
-          Name: "John Doe",
-          Role: "Developer",
-          Category: "Full-Time",
-          Location: "USA",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Alice Johnson",
-          Role: "Designer",
-          Category: "Part-Time",
-          Location: "Canada",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Bob Smith",
-          Role: "Manager",
-          Category: "Part-Time",
-          Location: "UK",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Bob Smith",
-          Role: "Manager",
-          Category: "Remote",
-          Location: "UK",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Bob Smith",
-          Role: "Manager",
-          Category: "Remote",
-          Location: "UK",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Alice Johnson",
-          Role: "Developer",
-          Category: "Full-time",
-          Location: "USA",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "David Brown",
-          Role: "Designer",
-          Category: "Part-Time",
-          Location: "Canada",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-        {
-          Name: "Ella Wilson",
-          Role: "Project Manager",
-          Category: "Remote",
-          Location: "Australia",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-
-        {
-          Name: "John Davis",
+          Name: "Sarah Johnson",
           Role: "Software Engineer",
           Category: "Full-time",
-          Location: "Germany",
+          Location: "USA",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Olivia Taylor",
-          Role: "Marketing Specialist",
+          Name: "Juan Rodriguez",
+          Role: "Graphic Designer",
           Category: "Part-Time",
-          Location: "France",
+          Location: "PHILIPPINES",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Michael Lee",
-          Role: "Data Analyst",
-          Category: "Remote",
-          Location: "Japan",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-
-        {
-          Name: "Sophia Harris",
-          Role: "Sales Representative",
+          Name: "Eliud Kipchoge",
+          Role: "Marathon Runner",
           Category: "Full-time",
-          Location: "Spain",
+          Location: "KENYA",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "William Clark",
-          Role: "HR Coordinator",
-          Category: "Part-Time",
-          Location: "Brazil",
-          info_icon: info,
-          Accept_icon: check,
-          Delete_icon: Delete_icon,
-        },
-
-        {
-          Name: "Ava Martinez",
-          Role: "Customer Support",
+          Name: "Layla Hassan",
+          Role: "Software Developer",
           Category: "Remote",
-          Location: "India",
+          Location: "LEBANON",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "James Thomas",
+          Name: "Michael Johnson",
           Role: "Product Manager",
           Category: "Full-time",
-          Location: "New Zealand",
+          Location: "USA",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Mia White",
-          Role: "Content Writer",
+          Name: "Maria Gonzales",
+          Role: "Customer Support",
           Category: "Part-Time",
-          Location: "South Africa",
+          Location: "PHILIPPINES",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
         },
-
         {
-          Name: "Benjamin Turner",
-          Role: "QA Tester",
-          Category: "Remote",
-          Location: "Mexico",
+          Name: "Ezekiel Kamau",
+          Role: "Software Engineer",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Lina Nassar",
+          Role: "Marketing Specialist",
+          Category: "Part-Time",
+          Location: "LEBANON",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "John Smith",
+          Role: "Project Manager",
+          Category: "Full-time",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Andres Ramos",
+          Role: "Designer",
+          Category: "Part-Time",
+          Location: "PHILIPPINES",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Wangari Maathai",
+          Role: "Environmental Activist",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Karim Khalil",
+          Role: "UX Designer",
+          Category: "Part-Time",
+          Location: "LEBANON",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Michael Johnson",
+          Role: "Product Manager",
+          Category: "Full-time",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Maria Gonzales",
+          Role: "Customer Support",
+          Category: "Part-Time",
+          Location: "PHILIPPINES",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Ezekiel Kamau",
+          Role: "Software Engineer",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Lina Nassar",
+          Role: "Marketing Specialist",
+          Category: "Part-Time",
+          Location: "LEBANON",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "John Smith",
+          Role: "Project Manager",
+          Category: "Full-time",
+          Location: "USA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Andres Ramos",
+          Role: "Designer",
+          Category: "Part-Time",
+          Location: "PHILIPPINES",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Wangari Maathai",
+          Role: "Environmental Activist",
+          Category: "Full-time",
+          Location: "KENYA",
+          info_icon: info,
+          Accept_icon: check,
+          Delete_icon: Delete_icon,
+        },
+        {
+          Name: "Karim Khalil",
+          Role: "UX Designer",
+          Category: "Part-Time",
+          Location: "LEBANON",
           info_icon: info,
           Accept_icon: check,
           Delete_icon: Delete_icon,
