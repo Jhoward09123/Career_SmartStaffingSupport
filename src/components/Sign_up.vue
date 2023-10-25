@@ -42,6 +42,7 @@ const form_data = ref({
               type="file"
               class="form-control file_input"
               id="customFile"
+              accept=".png, .jpeg, image/png, image/jpeg"
             />
             <div class="uploadPHOTO text-center">Upload your Photo</div>
             <label class="label_signup mt-4"> Email </label>
@@ -99,7 +100,7 @@ const form_data = ref({
 
           <div class="mobile_flex d-flex flex gap-4 space_20px_top w-100">
             <div class="mobile_left w-50">
-              <div class="form-group ">
+              <div class="form-group">
                 <label class="info_label">Mobile Number </label> <br />
                 <input type="tel" class="form-control w-100" id="telephone" />
               </div>
