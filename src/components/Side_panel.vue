@@ -36,12 +36,11 @@ const router = useRouter();
             <span class="nav_name">Interview</span></RouterLink
           >
           <div class="btn_logout_hold mb-3">
-            <button
-              @click="authStore.handleLogOut"
-              class="nav_name btn_sidebar"
-            >
-              Job Management
-            </button>
+            <RouterLink class="" to="/Job_Management">
+              <button @click="" class="nav_name btn_sidebar">
+                Job Management
+              </button>
+            </RouterLink>
           </div>
 
           <RouterLink class="nav_link py-2" to="/SkillAssesment">

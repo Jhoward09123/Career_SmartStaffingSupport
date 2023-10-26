@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 
-import Side_panel from "@/Side_panel.vue";
 </script>
 
 <template>
