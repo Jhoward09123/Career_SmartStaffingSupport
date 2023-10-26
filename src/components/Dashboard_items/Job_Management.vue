@@ -201,7 +201,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in filteredData" :key="index">
+            <tr v-for="(item, index) in getPaginatedData" :key="index">
               <td>
                 <input
                   class="form-check-input"
@@ -237,25 +237,35 @@
             </div>
           </div>
           <div class="w-50 d-flex justify-content-end gap-4">
+            <!-- <select id="pageSelector" v-model="currentPage">
+              <option v-for="page in totalPages" :key="page" :value="page">
+                {{ page }}
+              </option>
+            </select> -->
+
+            <!-- new selector -->
             <select v-model="currentPage">
-              <option
-                v-for="page in totalPageOptions"
-                :key="page"
-                :value="page"
-              >
+              <option v-for="page in totalPages" :key="page" :value="page">
                 {{ page }}
               </option>
             </select>
-
+            <!-- 
             <button
               @click="previousPage"
               :disabled="currentPage === 1"
               class="NoBgNoBor"
             >
               <img :src="Previous_icon" alt="Previous_icon" />
+            </button> -->
+
+            <button
+              class="NoBgNoBor"
+              @click="previousPage"
+              :disabled="currentPage === 1"
+            >
+              <img :src="Previous_icon" alt="Previous_icon" />
             </button>
 
-            <!-- Next Button -->
             <button
               class="NoBgNoBor"
               @click="nextPage"
@@ -263,6 +273,15 @@
             >
               <img :src="Next_icon" alt="Next_icon" />
             </button>
+
+            <!-- Next Button -->
+            <!-- <button
+              class="NoBgNoBor"
+              @click="nextPage"
+              :disabled="currentPage === totalPages"
+            >
+              <img :src="Next_icon" alt="Next_icon" />
+            </button> -->
           </div>
 
           <!-- Page Selector Dropdown -->
@@ -291,9 +310,32 @@ import lebanon_flag from "@/assets/Images/flag_only/lebanon_flag.png";
 
 import { ref, computed } from "vue";
 
-const searchQuery = ref("");
+const currentPage = ref(1);
+const itemsPerPage = 3;
 
+const searchQuery = ref("");
 const rangeValue = ref(1000);
+
+const totalPages = computed(() =>
+  Math.ceil(filteredData.value.length / itemsPerPage)
+);
+
+const getPaginatedData = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage;
+  return filteredData.value.slice(startIndex, startIndex + itemsPerPage);
+});
+
+const previousPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+  }
+};
+
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
 
 const filteredData = computed(() => {
   const query = searchQuery.value.toLowerCase().trim();

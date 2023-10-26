@@ -41,7 +41,6 @@ import { RouterLink, RouterView } from "vue-router";
                   Job Management
                 </button>
               </div>
-
               <RouterLink class="nav_link py-2" to="/SkillAssesment">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Skill Assesment</span></RouterLink

@@ -178,7 +178,7 @@ export default {
   data() {
     return {
       baseData: [
-      {
+        {
           Name: "Sarah Johnson",
           Role: "Software Engineer",
           Category: "Full-time",
@@ -426,7 +426,6 @@ export default {
       if (!query) {
         return this.baseData; // Return all data if query is empty
       }
-
       return this.baseData.filter((item) => {
         const name = item.Name.toLowerCase();
         const role = item.Role.toLowerCase();
