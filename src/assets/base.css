@@ -58,6 +58,15 @@
   font-weight: normal;
 }
 
+.Main_title_Dash {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  color: #000;
+}
+
+
+
 .padding_body {
   padding-left: 60px;
   padding-right: 60px;
@@ -149,4 +158,3 @@
   font-size: 24px;
   font-style: normal;
 }
-

@@ -6,6 +6,24 @@ import { nextTick } from "vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.VUE_APP_BASE_API_URL),
   routes: [
+    //Job Management
+    {
+      path: "/Job_Management_View_all",
+      name: "Job_Management_View_all",
+      meta: {
+        requireLogin: true,
+      },
+      component: () => import("@/components/Job_Management/View_all.vue"),
+    },
+    {
+      path: "/Job_Management_Add_Job",
+      name: "Job_Management_Add_Job",
+      meta: {
+        requireLogin: true,
+      },
+      component: () => import("@/components/Job_Management/Add_Job.vue"),
+    },
+
     {
       path: "/",
       name: "home",
@@ -114,7 +132,8 @@ const router = createRouter({
         requireLogIn: true,
       },
 
-      component: () => import("@/components/Dashboard_items/Job_Management.vue"),
+      component: () =>
+        import("@/components/Dashboard_items/Job_Management.vue"),
     },
 
     //All table view all table

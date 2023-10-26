@@ -242,8 +242,8 @@
                 {{ page }}
               </option>
             </select> -->
-
             <!-- new selector -->
+            <span> Select Page :</span>
             <select v-model="currentPage">
               <option v-for="page in totalPages" :key="page" :value="page">
                 {{ page }}
