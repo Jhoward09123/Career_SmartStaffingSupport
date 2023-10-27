@@ -365,146 +365,119 @@
                 <div class="Label_title">Upload Flyer</div>
                 <div class="Label_title">
                   <input
-                    class="form-control-lg form-control upload_flyer_input"
+                    class="form-control form-control-lg"
                     id="formFileLg"
                     type="file"
                   />
-                 
                 </div>
               </div>
             </div>
           </div>
           <div class="column_3 px-2">
             <div class="">
-              <div class="Label_title">Job Title</div>
               <div class="Label_title">
-                <input type="text" class="input_one" />
+                About Job <span class="char_200">(200 Character Max)</span>
               </div>
-            </div>
-            <div class="item_hold d-flex gap-3">
-              <div class="left_cate">
-                <div class="Label_title">Job Category</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-              <div class="right_con">
-                <div class="Label_title">Contract Type</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
+              <div class="Label_title">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 100px"
+                  ></textarea>
                 </div>
               </div>
             </div>
-            <div class="item_hold d-flex gap-3">
-              <div class="left_cate">
-                <div class="Label_title">Country</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-              <div class="right_con">
-                <div class="Label_title">City</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-            </div>
-            <div class="item_hold gap-3">
-              <div class="Label_title">Salary Range Min-Max</div>
-              <div class="d-flex gap-3">
-                <div class="left_cate">
-                  <div class="Label_title">
-                    <input type="text" class="two_input" />
+            <div class="item_hold">
+              <div class="Label_title">Job Description</div>
+              <div class="Label_title">
+                <div class="form-floating">
+                  <div class="d-flex gap-2">
+                    <div class="">
+                      <textarea
+                        class="form-control"
+                        placeholder=""
+                        id="floatingTextarea2"
+                        style="height: 100px; width: 298px"
+                      ></textarea>
+                    </div>
+                    <div class="">
+                      <button
+                        class="btn-light add_btn_description"
+                        type="submit"
+                      >
+                        <img :src="add_btn_des" alt="add_btn_des" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="right_con">
-                  <div class="Label_title"></div>
-                  <div class="Label_title">
-                    <input type="text" class="two_input" />
+                  <div class="border border-secondary border_add_descrip">
+                    <div class="overflow-auto m-2">
+                      <ul class="list_job_descript">
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="item_hold d-flex gap-3">
-              <div class="left_cate">
-                <div class="Label_title">Upload Flyer</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-              <div class="right_con">
-                <div class="Label_title">Contract Type</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
                 </div>
               </div>
             </div>
           </div>
           <div class="column_3 px-2">
             <div class="">
-              <div class="Label_title">Job Title</div>
+              <div class="Label_title">Qualifications</div>
               <div class="Label_title">
-                <input type="text" class="input_one" />
-              </div>
-            </div>
-            <div class="item_hold d-flex gap-3">
-              <div class="left_cate">
-                <div class="Label_title">Job Category</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-              <div class="right_con">
-                <div class="Label_title">Contract Type</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-            </div>
-            <div class="item_hold d-flex gap-3">
-              <div class="left_cate">
-                <div class="Label_title">Country</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-              <div class="right_con">
-                <div class="Label_title">City</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-            </div>
-            <div class="item_hold gap-3">
-              <div class="Label_title">Salary Range Min-Max</div>
-              <div class="d-flex gap-3">
-                <div class="left_cate">
-                  <div class="Label_title">
-                    <input type="text" class="two_input" />
+                <div class="form-floating">
+                  <div class="d-flex gap-2">
+                    <div class="">
+                      <textarea
+                        class="form-control"
+                        placeholder=""
+                        id="floatingTextarea2"
+                        style="height: 100px; width: 298px"
+                      ></textarea>
+                    </div>
+                    <div class="">
+                      <button
+                        class="btn-light add_btn_description"
+                        type="submit"
+                      >
+                        <img :src="add_btn_des" alt="add_btn_des" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="right_con">
-                  <div class="Label_title"></div>
-                  <div class="Label_title">
-                    <input type="text" class="two_input" />
+                  <div class="border border-secondary border_add_descrip">
+                    <div class="overflow-auto m-2">
+                      <ul class="list_job_descript">
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                        <li>Description 1</li>
+                        <li>Description 2</li>
+                        <li>Description 3</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="item_hold d-flex gap-3">
-              <div class="left_cate">
-                <div class="Label_title">Upload Flyer</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-              <div class="right_con">
-                <div class="Label_title">Contract Type</div>
-                <div class="Label_title">
-                  <input type="text" class="two_input" />
-                </div>
-              </div>
-            </div>
+            <button>sumbit</button>
           </div>
         </div>
       </div>
@@ -513,14 +486,63 @@
 </template>
 
 <script setup>
+import add_btn_des from "@/assets/Images/Btn_icons/add_btn_descr.svg";
 import Side_panel from "@/components/Side_panel.vue";
 </script>
 
 <style>
-.upload_flyer_input {
-  height: 55px;
+.border_add_descrip {
+  border-radius: 15px;
+  margin-top: 20px;
+}
+/* WebKit (Chrome, Safari) */
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
 }
 
+.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: #aaa; /* thumb color */
+  border-radius: 4px; /* rounded corners */
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* thumb color on hover */
+}
+
+/* Firefox */
+.overflow-auto::-webkit-scrollbar-track {
+  background: #eee; /* track color */
+}
+
+.overflow-auto {
+  height: 150px;
+  overflow: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #aaa #eee; /* thumb and track color */
+}
+.overflow-auto {
+  margin-top: 10px;
+
+  border-radius: 15px;
+}
+
+.list_job_descript {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+}
+.add_btn_description {
+  border-radius: 15px;
+  background: none;
+  border: 1px solid black;
+  background-color: none;
+  padding: 10px 20px;
+}
+.char_200 {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+}
 .two_input {
   width: 100%;
   border-radius: 10px;
