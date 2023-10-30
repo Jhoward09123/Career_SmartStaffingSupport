@@ -7,6 +7,19 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VUE_APP_BASE_API_URL),
   routes: [
     //Job Management
+
+    {
+      path: "/Job_Management",
+      name: "Job_Management",
+
+      meta: {
+        requireLogIn: true,
+      },
+
+      component: () =>
+        import("@/components/Dashboard_items/Job_Management.vue"),
+    },
+
     {
       path: "/Job_Management_View_all",
       name: "Job_Management_View_all",
@@ -122,18 +135,6 @@ const router = createRouter({
       },
 
       component: () => import("@/components/Dashboard_items/Review.vue"),
-    },
-
-    {
-      path: "/Job_Management",
-      name: "Job_Management",
-
-      meta: {
-        requireLogIn: true,
-      },
-
-      component: () =>
-        import("@/components/Dashboard_items/Job_Management.vue"),
     },
 
     //All table view all table
