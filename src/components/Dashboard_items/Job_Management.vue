@@ -207,7 +207,7 @@
                 />
               </td>
               <td>{{ item.name }}</td>
-              <td>{{ item.job_category_id }}</td>
+              <td>{{ store.getJobCategory(item.job_category_id).name }}</td>
               <td>{{ item.min_salary }}</td>
               <td>{{ item.country_id }}</td>
               <td>
@@ -303,14 +303,23 @@ import usa_flag from "@/assets/Images/flag_only/usa_flag.png";
 import phil_flag from "@/assets/Images/flag_only/flag philippines.png";
 import kenya_flag from "@/assets/Images/flag_only/kenya_flag.png";
 import lebanon_flag from "@/assets/Images/flag_only/lebanon_flag.png";
-import { usegGobalStore } from "@/stores/store";
+import { useGlobalStore } from "@/stores/globalStore";
 
-import { ref, computed ,isReactive} from "vue";
+import { ref, computed ,isReactive, onMounted} from "vue";
 
 const store = useGlobalStore();
-store.getJobs()
-console.log('gggggggggggggggggggggggggggggggggggg')
-console.log(store.jobs) 
+
+const jobs = ref ()
+onMounted( () => {
+  store.getJobs()
+  
+  jobs.value = store.jobs
+  
+   
+  console.log('gggggggggggggggggggggggggggggggggggggg')
+  console.log(store.jobs)   
+})
+ 
 
 const currentPage = ref(1);
 const itemsPerPage = 3;
@@ -350,16 +359,8 @@ const filteredData = computed(() => {
     return jobTitle.includes(query);
   });
 });
-// console.log(store.allJobs)
-// console.log(store.allJobs)
-// console.log(store.allJobs)
-// console.log(store.allJobs)
-// console.log(store.jobs)
-console.log('store.jobs')
-console.log(isReactive(store.jobs))
-// const baseData = store.jobs
-// const jobs = toRef(store.jobs)
-const baseData = ref([
+const baseData = ref(store.jobs)
+const baseDataa = ref([
   {
     select: "Select",
     name: "Customer Service Representative",
@@ -417,7 +418,6 @@ const baseData = ref([
   //   location: "Lebanon",
   // },
 ]);
-console.log(baseData.value)
 
 const paginatedData = ref(baseData);
 </script>
