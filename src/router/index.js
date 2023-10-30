@@ -7,7 +7,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VUE_APP_BASE_API_URL),
   routes: [
     //Job Management
-
     {
       path: "/Job_Management",
       name: "Job_Management",
@@ -36,6 +35,8 @@ const router = createRouter({
       },
       component: () => import("@/components/Job_Management/Add_Job.vue"),
     },
+
+    //home
 
     {
       path: "/",

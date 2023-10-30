@@ -120,7 +120,7 @@
               <div class="Label_title">
                 <div class="form-floating">
                   <textarea
-                    class="form-control"
+                    class="form-control border_textarea"
                     placeholder="Leave a comment here"
                     id="floatingTextarea2"
                     style="height: 100px"
@@ -134,8 +134,10 @@
                 <div class="form-floating">
                   <div class="d-flex gap-2">
                     <div class="">
+                      <!-- here -->
                       <textarea
-                        class="form-control"
+                        v-model="newDescription"
+                        class="form-control border_textarea"
                         placeholder=""
                         id="floatingTextarea2"
                         style="height: 100px; width: 298px"
@@ -143,6 +145,7 @@
                     </div>
                     <div class="">
                       <button
+                        @click="addDescription"
                         class="btn-light add_btn_description"
                         type="submit"
                       >
@@ -150,21 +153,26 @@
                       </button>
                     </div>
                   </div>
-                  <div class="border border-secondary border_add_descrip">
+                  <div class="border_add_descrip">
                     <div class="overflow-auto m-2">
                       <ul class="list_job_descript">
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
+                        <li class="border_item_list">
+                          <div
+                            v-for="(description, index) in descriptions"
+                            :key="index"
+                            class="d-flex w-100 border_per_item"
+                          >
+                            <div class="item_text_hold">{{ description }}</div>
+                            <div class="button_remove_hold">
+                              <button class="remove_btn">
+                                <img
+                                  :src="remove_list_icon"
+                                  alt="remove_list_icon"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -180,7 +188,7 @@
                   <div class="d-flex gap-2">
                     <div class="">
                       <textarea
-                        class="form-control"
+                        class="form-control border_textarea"
                         placeholder=""
                         id="floatingTextarea2"
                         style="height: 100px; width: 298px"
@@ -195,21 +203,10 @@
                       </button>
                     </div>
                   </div>
-                  <div class="border border-secondary border_add_descrip">
+                  <div class="border_add_descrip">
                     <div class="overflow-auto m-2">
                       <ul class="list_job_descript">
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
-                        <li>Description 1</li>
-                        <li>Description 2</li>
-                        <li>Description 3</li>
+
                       </ul>
                     </div>
                   </div>
@@ -228,13 +225,73 @@
 </template>
 
 <script setup>
+import remove_list_icon from "@/assets/Images/action_icon/remove_list_icon.svg";
 import add_btn_des from "@/assets/Images/Btn_icons/add_btn_descr.svg";
 import Side_panel from "@/components/Side_panel.vue";
+
+import { ref } from "vue";
+
+const descriptions = ref([]);
+const newDescription = ref("");
+
+const addDescription = () => {
+  if (newDescription.value) {
+    descriptions.value.push(newDescription.value);
+    newDescription.value = ""; // Clear the input field
+  }
+};
+
+//new qualifications
+
+const qualifications = ref([]);
+const newqualifications = ref("");
+
+const addqualifications = () => {
+  if (newqualifications.value) {
+    descriptions.value.push(newqualifications.value);
+    newqualifications.value = ""; // Clear the input field
+  }
+};
+
 </script>
 
 <style>
-.btn_submit_hold{
- 
+/* boder_per_item */
+
+.border_per_item {
+  border: 1px solid black;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  border-radius: 15px;
+}
+
+/* Space_description */
+.item_text_hold {
+  width: 90%;
+}
+.button_remove_hold {
+  width: 10%;
+}
+
+/* Remove_btn_list */
+
+.remove_btn {
+  background: none;
+  border-style: none;
+}
+
+/* Border_list */
+.border_item_list {
+  margin-right: 10px;
+  border-radius: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Text Area */
+
+.border_textarea {
+  border: solid black 1px;
 }
 
 .border_add_box {
@@ -255,6 +312,7 @@ import Side_panel from "@/components/Side_panel.vue";
 .border_add_descrip {
   border-radius: 15px;
   margin-top: 20px;
+  border: 1px solid black;
 }
 /* WebKit (Chrome, Safari) */
 .overflow-auto::-webkit-scrollbar {
@@ -283,7 +341,6 @@ import Side_panel from "@/components/Side_panel.vue";
 }
 .overflow-auto {
   margin-top: 10px;
-
   border-radius: 15px;
 }
 
@@ -291,6 +348,8 @@ import Side_panel from "@/components/Side_panel.vue";
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
+  list-style-type: none;
+  padding-left: 5px;
 }
 .add_btn_description {
   border-radius: 15px;
