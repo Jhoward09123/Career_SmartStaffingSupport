@@ -16,7 +16,7 @@
             <div class="">
               <div class="Label_title">Job Title</div>
               <div class="Label_title">
-                <input type="text" class="input_one" />
+                <input type="text" class="input_one px-2" />
               </div>
             </div>
             <div class="item_hold d-flex gap-3">
@@ -75,13 +75,13 @@
               <div class="d-flex gap-3">
                 <div class="left_cate w-50">
                   <div class="Label_title">
-                    <input type="text" class="two_input" />
+                    <input type="number" class="two_input" />
                   </div>
                 </div>
                 <div class="right_con w-50">
                   <div class="Label_title"></div>
                   <div class="Label_title">
-                    <input type="text" class="two_input" />
+                    <input type="number" class="two_input" />
                   </div>
                 </div>
               </div>
@@ -157,19 +157,31 @@
                     <div class="overflow-auto m-2">
                       <ul class="list_job_descript">
                         <li class="border_item_list">
-                          <div
-                            v-for="(description, index) in descriptions"
-                            :key="index"
-                            class="d-flex w-100 border_per_item"
-                          >
-                            <div class="item_text_hold">{{ description }}</div>
-                            <div class="button_remove_hold">
-                              <button class="remove_btn">
-                                <img
-                                  :src="remove_list_icon"
-                                  alt="remove_list_icon"
-                                />
-                              </button>
+                          <div v-if="descriptions.length > 0">
+                            <div
+                              v-for="(description, index) in descriptions"
+                              :key="index"
+                              class="d-flex w-100 border_per_item"
+                            >
+                              <div class="item_text_hold">
+                                {{ description }}
+                              </div>
+                              <div class="button_remove_hold">
+                                <button
+                                  class="remove_btn"
+                                  @click="removeDescription"
+                                >
+                                  <img
+                                    :src="remove_list_icon"
+                                    alt="remove_list_icon"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div v-else>
+                            <div class="item_text_hold">
+                              Empty Add Job Description
                             </div>
                           </div>
                         </li>
@@ -188,6 +200,7 @@
                   <div class="d-flex gap-2">
                     <div class="">
                       <textarea
+                        v-model="newqualifications"
                         class="form-control border_textarea"
                         placeholder=""
                         id="floatingTextarea2"
@@ -196,6 +209,7 @@
                     </div>
                     <div class="">
                       <button
+                        @click="addqualifications"
                         class="btn-light add_btn_description"
                         type="submit"
                       >
@@ -206,7 +220,35 @@
                   <div class="border_add_descrip">
                     <div class="overflow-auto m-2">
                       <ul class="list_job_descript">
-
+                        <li class="border_item_list">
+                          <div v-if="qualifications.length > 0">
+                            <div
+                              v-for="(qualification, index) in qualifications"
+                              :key="index"
+                              class="d-flex w-100 border_per_item"
+                            >
+                              <div class="item_text_hold">
+                                {{ qualification }}
+                              </div>
+                              <div class="button_remove_hold">
+                                <button
+                                  class="remove_btn"
+                                  @click="removeQualifications"
+                                >
+                                  <img
+                                    :src="remove_list_icon"
+                                    alt="remove_list_icon"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div v-else>
+                            <div class="item_text_hold">
+                              Empty Add Qualifications
+                            </div>
+                          </div>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -233,6 +275,7 @@ import { ref } from "vue";
 
 const descriptions = ref([]);
 const newDescription = ref("");
+const currencyValue = ref("");
 
 const addDescription = () => {
   if (newDescription.value) {
@@ -248,11 +291,20 @@ const newqualifications = ref("");
 
 const addqualifications = () => {
   if (newqualifications.value) {
-    descriptions.value.push(newqualifications.value);
+    qualifications.value.push(newqualifications.value);
     newqualifications.value = ""; // Clear the input field
   }
 };
 
+const removeDescription = (index) => {
+  descriptions.value.splice(index, 1);
+};
+
+const removeQualifications = (index) => {
+  qualifications.value.splice(index, 1);
+};
+
+//currency
 </script>
 
 <style>
@@ -268,6 +320,7 @@ const addqualifications = () => {
 /* Space_description */
 .item_text_hold {
   width: 90%;
+  word-break: break-all;
 }
 .button_remove_hold {
   width: 10%;
@@ -372,6 +425,8 @@ const addqualifications = () => {
   font-style: normal;
   font-weight: 400;
   color: black;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .item_hold {
