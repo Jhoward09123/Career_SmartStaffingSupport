@@ -29,14 +29,10 @@
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Interview</span></RouterLink
               >
-              <div class="btn_logout_hold mb-3">
-                <button
-                  @click="authStore.handleLogOut"
-                  class="nav_name btn_sidebar"
-                >
-                  Job Management
-                </button>
-              </div>
+              <RouterLink class="nav_link py-2" to="/Interview">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Job Management</span></RouterLink
+              >
 
               <RouterLink class="nav_link py-2" to="/SkillAssesment">
                 <i class="bx bx-grid-alt nav_icon"></i>
@@ -210,10 +206,10 @@
                   id="flexCheckDefault"
                 />
               </td>
-              <td>{{ item.job_title }}</td>
-              <td>{{ item.job_category }}</td>
-              <td>{{ item.salary }}</td>
-              <td>{{ item.location }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.job_category_id }}</td>
+              <td>{{ item.min_salary }}</td>
+              <td>{{ item.country_id }}</td>
               <td>
                 <div class="flex d-flex justify-content-center gap-2">
                   <img :src="edit_icon" alt="edit_icon" />
@@ -307,8 +303,14 @@ import usa_flag from "@/assets/Images/flag_only/usa_flag.png";
 import phil_flag from "@/assets/Images/flag_only/flag philippines.png";
 import kenya_flag from "@/assets/Images/flag_only/kenya_flag.png";
 import lebanon_flag from "@/assets/Images/flag_only/lebanon_flag.png";
+import { usegGobalStore } from "@/stores/store";
 
-import { ref, computed } from "vue";
+import { ref, computed ,isReactive} from "vue";
+
+const store = useGlobalStore();
+store.getJobs()
+console.log('gggggggggggggggggggggggggggggggggggg')
+console.log(store.jobs) 
 
 const currentPage = ref(1);
 const itemsPerPage = 3;
@@ -348,65 +350,74 @@ const filteredData = computed(() => {
     return jobTitle.includes(query);
   });
 });
-
+// console.log(store.allJobs)
+// console.log(store.allJobs)
+// console.log(store.allJobs)
+// console.log(store.allJobs)
+// console.log(store.jobs)
+console.log('store.jobs')
+console.log(isReactive(store.jobs))
+// const baseData = store.jobs
+// const jobs = toRef(store.jobs)
 const baseData = ref([
   {
     select: "Select",
-    job_title: "Customer Service Representative",
-    job_category: "Full-Time",
-    salary: "$25,000",
-    location: "USA",
-  },
-  {
-    select: "Select",
-    job_title: "Technical Support Specialist",
-    job_category: "Part-Time",
-    salary: "$20,000",
-    location: "Philippines",
-  },
-  {
-    select: "Select",
-    job_title: "Quality Assurance Analyst",
-    job_category: "Remote",
-    salary: "$30,000",
-    location: "Kenya",
-  },
-  {
-    select: "Select",
-    job_title: "Team Leader - BPO Operations",
-    job_category: "Full-Time",
-    salary: "$35,000",
-    location: "Lebanon",
-  },
-  {
-    select: "Select",
-    job_title: "Customer Service Representative",
-    job_category: "Full-Time",
-    salary: "$25,000",
-    location: "USA",
-  },
-  {
-    select: "Select",
-    job_title: "Technical Support Specialist",
-    job_category: "Part-Time",
-    salary: "$20,000",
-    location: "Philippines",
-  },
-  {
-    select: "Select",
-    job_title: "Quality Assurance Analyst",
-    job_category: "Remote",
-    salary: "$30,000",
-    location: "Kenya",
-  },
-  {
-    select: "Select",
-    job_title: "Team Leader - BPO Operations",
-    job_category: "Full-Time",
-    salary: "$35,000",
-    location: "Lebanon",
-  },
+    name: "Customer Service Representative",
+    job_category_id: "Full-Time",
+    min_salary: "$25,000",
+    country_id: "USA",
+  }
+  // {
+  //   select: "Select",
+  //   job_title: "Technical Support Specialist",
+  //   job_category: "Part-Time",
+  //   salary: "$20,000",
+  //   location: "Philippines",
+  // },
+  // {
+  //   select: "Select",
+  //   job_title: "Quality Assurance Analyst",
+  //   job_category: "Remote",
+  //   salary: "$30,000",
+  //   location: "Kenya",
+  // },
+  // {
+  //   select: "Select",
+  //   job_title: "Team Leader - BPO Operations",
+  //   job_category: "Full-Time",
+  //   salary: "$35,000",
+  //   location: "Lebanon",
+  // },
+  // {
+  //   select: "Select",
+  //   job_title: "Customer Service Representative",
+  //   job_category: "Full-Time",
+  //   salary: "$25,000",
+  //   location: "USA",
+  // },
+  // {
+  //   select: "Select",
+  //   job_title: "Technical Support Specialist",
+  //   job_category: "Part-Time",
+  //   salary: "$20,000",
+  //   location: "Philippines",
+  // },
+  // {
+  //   select: "Select",
+  //   job_title: "Quality Assurance Analyst",
+  //   job_category: "Remote",
+  //   salary: "$30,000",
+  //   location: "Kenya",
+  // },
+  // {
+  //   select: "Select",
+  //   job_title: "Team Leader - BPO Operations",
+  //   job_category: "Full-Time",
+  //   salary: "$35,000",
+  //   location: "Lebanon",
+  // },
 ]);
+console.log(baseData.value)
 
 const paginatedData = ref(baseData);
 </script>
