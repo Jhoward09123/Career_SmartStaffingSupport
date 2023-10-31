@@ -314,13 +314,11 @@ const jobs = ref ([])
 
 
 onMounted( async () => {
-  // alert('here')
   await store.getJobs()
   
   jobs.value = store.jobs
   
 })
-jobs 
 
 const currentPage = ref(1);
 const itemsPerPage = 3;
