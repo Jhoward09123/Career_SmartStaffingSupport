@@ -20,6 +20,7 @@
             <option>PHILIPPINES</option>
             <option value="2">CALIFORNIA</option>
             <option value="3">KENYA</option>
+            <option value="3">LEBANON</option>
           </select>
         </div>
         <div class="">
