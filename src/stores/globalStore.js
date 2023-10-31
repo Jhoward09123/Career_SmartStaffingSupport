@@ -16,6 +16,7 @@ export const useGlobalStore = defineStore('global', () => {
         const res = await axios.get('api/jobs').then((res) => {
             jobs.value = res.data.data
         })
+        
     }
 
     async function getJob(id) {

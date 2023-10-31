@@ -207,9 +207,10 @@
                 />
               </td>
               <td>{{ item.name }}</td>
-              <td>{{ store.getJobCategory(item.job_category_id).name }}</td>
-              <td>{{ item.min_salary }}</td>
-              <td>{{ item.country_id }}</td>
+              <!-- <td>{{ store.getJobCategory(item.job_category_id).name }}</td>  -->
+              <td>{{ item.job_category.name }}</td>
+              <td>{{ item.min_salary+" - "+item.min_salary }}</td>
+              <td>{{ item.country.name }}</td>
               <td>
                 <div class="flex d-flex justify-content-center gap-2">
                   <img :src="edit_icon" alt="edit_icon" />
@@ -305,21 +306,21 @@ import kenya_flag from "@/assets/Images/flag_only/kenya_flag.png";
 import lebanon_flag from "@/assets/Images/flag_only/lebanon_flag.png";
 import { useGlobalStore } from "@/stores/globalStore";
 
-import { ref, computed ,isReactive, onMounted} from "vue";
+import { ref, computed ,isReactive, onMounted, onBeforeMount} from "vue";
 
 const store = useGlobalStore();
 
-const jobs = ref ()
-onMounted( () => {
-  store.getJobs()
+const jobs = ref ([])
+
+
+onMounted( async () => {
+  // alert('here')
+  await store.getJobs()
   
   jobs.value = store.jobs
   
-   
-  console.log('gggggggggggggggggggggggggggggggggggggg')
-  console.log(store.jobs)   
 })
- 
+jobs 
 
 const currentPage = ref(1);
 const itemsPerPage = 3;
@@ -333,6 +334,7 @@ const totalPages = computed(() =>
 
 const getPaginatedData = computed(() => {
   const startIndex = (currentPage.value - 1) * itemsPerPage;
+  console.log(startIndex);
   return filteredData.value.slice(startIndex, startIndex + itemsPerPage);
 });
 
@@ -351,75 +353,18 @@ const nextPage = () => {
 const filteredData = computed(() => {
   const query = searchQuery.value.toLowerCase().trim();
   if (!query) {
-    return baseData.value;
+    return jobs.value;
   }
 
-  return baseData.value.filter((item) => {
-    const jobTitle = item.job_title.toLowerCase();
-    return jobTitle.includes(query);
+  return jobs.value.filter((item) => {
+    const name = item.name.toLowerCase();
+    return name.includes(query);
   });
 });
-const baseData = ref(store.jobs)
-const baseDataa = ref([
-  {
-    select: "Select",
-    name: "Customer Service Representative",
-    job_category_id: "Full-Time",
-    min_salary: "$25,000",
-    country_id: "USA",
-  }
-  // {
-  //   select: "Select",
-  //   job_title: "Technical Support Specialist",
-  //   job_category: "Part-Time",
-  //   salary: "$20,000",
-  //   location: "Philippines",
-  // },
-  // {
-  //   select: "Select",
-  //   job_title: "Quality Assurance Analyst",
-  //   job_category: "Remote",
-  //   salary: "$30,000",
-  //   location: "Kenya",
-  // },
-  // {
-  //   select: "Select",
-  //   job_title: "Team Leader - BPO Operations",
-  //   job_category: "Full-Time",
-  //   salary: "$35,000",
-  //   location: "Lebanon",
-  // },
-  // {
-  //   select: "Select",
-  //   job_title: "Customer Service Representative",
-  //   job_category: "Full-Time",
-  //   salary: "$25,000",
-  //   location: "USA",
-  // },
-  // {
-  //   select: "Select",
-  //   job_title: "Technical Support Specialist",
-  //   job_category: "Part-Time",
-  //   salary: "$20,000",
-  //   location: "Philippines",
-  // },
-  // {
-  //   select: "Select",
-  //   job_title: "Quality Assurance Analyst",
-  //   job_category: "Remote",
-  //   salary: "$30,000",
-  //   location: "Kenya",
-  // },
-  // {
-  //   select: "Select",
-  //   job_title: "Team Leader - BPO Operations",
-  //   job_category: "Full-Time",
-  //   salary: "$35,000",
-  //   location: "Lebanon",
-  // },
-]);
 
-const paginatedData = ref(baseData);
+
+
+const paginatedData = ref(jobs);
 </script>
 
 <style>
