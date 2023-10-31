@@ -28,7 +28,6 @@
                     aria-label="Default select example"
                   >
                     <option selected>Hybrid</option>
-
                     <option value="2">On site</option>
                     <option value="3">Remote</option>
                   </select>
@@ -367,35 +366,7 @@ const removeQualifications = (index) => {
   margin-top: 20px;
   border: 1px solid black;
 }
-/* WebKit (Chrome, Safari) */
-.overflow-auto::-webkit-scrollbar {
-  width: 8px;
-}
 
-.overflow-auto::-webkit-scrollbar-thumb {
-  background-color: #aaa; /* thumb color */
-  border-radius: 4px; /* rounded corners */
-}
-
-.overflow-auto::-webkit-scrollbar-thumb:hover {
-  background-color: #888; /* thumb color on hover */
-}
-
-/* Firefox */
-.overflow-auto::-webkit-scrollbar-track {
-  background: #eee; /* track color */
-}
-
-.overflow-auto {
-  height: 150px;
-  overflow: auto;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #aaa #eee; /* thumb and track color */
-}
-.overflow-auto {
-  margin-top: 10px;
-  border-radius: 15px;
-}
 
 .list_job_descript {
   font-size: 18px;

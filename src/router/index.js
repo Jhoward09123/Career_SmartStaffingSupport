@@ -6,6 +6,24 @@ import { nextTick } from "vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.VUE_APP_BASE_API_URL),
   routes: [
+
+    
+    //info_job user view
+    {
+      path: "/info_job",
+      name: "info_job",
+
+      meta: {
+        requireLogIn: true,
+      },
+
+      component: () =>
+        import("@/components/User_point_View/info_job.vue"),
+    },
+
+
+
+
     //Job Management
     {
       path: "/Job_Management",
