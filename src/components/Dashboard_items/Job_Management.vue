@@ -103,10 +103,12 @@
 
       <div class="add_location_box_hold">
         <div class="loaction_add_items_hold">
-          <button class="btn btn-primary add_job_btn">
-            <img :src="profile_pic" alt="profile_pic" />
-            ADD JOB
-          </button>
+          <RouterLink class="" to="/Job_Management_Add_Job">
+            <button class="btn btn-primary add_job_btn">
+              <img :src="profile_pic" alt="profile_pic" />
+              ADD JOB
+            </button>
+          </RouterLink>
         </div>
         <div class="loaction_add_items">
           <div class="border_country gap-2">
@@ -149,7 +151,7 @@
           </div>
         </div>
       </div>
-      <!-- table here -->
+    
 
       <div class="tableJob_hold border border-secondary mt-5">
         <div class="Table_top_holder w-100 my-3">
@@ -173,7 +175,7 @@
             </div>
           </div>
         </div>
-
+  <!-- table here -->
         <table class="table_dashboard table table-bordered rounded text-center">
           <thead>
             <tr>
@@ -229,11 +231,6 @@
           <div class="w-50 d-flex gap-4">
             <div class="Status_pages">
               Page {{ currentPage }} out of {{ totalPages }}
-            </div>
-            <div class="Status_pages">
-              <button class="View_all_btn">
-                <u><b>View All</b></u>
-              </button>
             </div>
           </div>
           <div class="w-50 d-flex justify-content-end gap-4">

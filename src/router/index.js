@@ -20,12 +20,12 @@ const router = createRouter({
     },
 
     {
-      path: "/Job_Management_View_all",
-      name: "Job_Management_View_all",
+      path: "/usa_view_all",
+      name: "usa_view_all",
       meta: {
         requireLogin: true,
       },
-      component: () => import("@/components/Job_Management/View_all.vue"),
+      component: () => import("@/components/Job_Management/usa_view_all.vue"),
     },
     {
       path: "/Job_Management_Add_Job",
