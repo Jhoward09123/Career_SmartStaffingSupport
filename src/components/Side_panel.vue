@@ -49,7 +49,7 @@ const router = useRouter();
           >
           <div class="border_space_20margin"></div>
           <div class="btn_logout_hold margin_top">
-            <button @click="authStore.handleLogOut" class="nav_name btn_logout">
+            <button @click="authStore.handleLogOut" class="btn btn-dark nav_name btn_logout">
               Log out
             </button>
           </div>
