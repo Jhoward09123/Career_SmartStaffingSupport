@@ -40,7 +40,7 @@ const router = createRouter({
 
     {
       path: "/",
-      name: "home",
+      name: "/",
       meta: {
         requireLogin: true,
       },

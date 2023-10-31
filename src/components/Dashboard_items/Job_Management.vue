@@ -29,14 +29,10 @@
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Interview</span></RouterLink
               >
-              <div class="btn_logout_hold mb-3">
-                <button
-                  @click="authStore.handleLogOut"
-                  class="nav_name btn_sidebar"
-                >
-                  Job Management
-                </button>
-              </div>
+              <RouterLink class="nav_link py-2" to="/Interview">
+                <i class="bx bx-grid-alt nav_icon"></i>
+                <span class="nav_name">Job Management</span></RouterLink
+              >
 
               <RouterLink class="nav_link py-2" to="/SkillAssesment">
                 <i class="bx bx-grid-alt nav_icon"></i>
@@ -212,10 +208,11 @@
                   id="flexCheckDefault"
                 />
               </td>
-              <td>{{ item.job_title }}</td>
-              <td>{{ item.job_category }}</td>
-              <td>{{ item.salary }}</td>
-              <td>{{ item.location }}</td>
+              <td>{{ item.name }}</td>
+              <!-- <td>{{ store.getJobCategory(item.job_category_id).name }}</td>  -->
+              <td>{{ item.job_category.name }}</td>
+              <td>{{ item.min_salary+" - "+item.min_salary }}</td>
+              <td>{{ item.country.name }}</td>
               <td>
                 <div class="flex d-flex justify-content-center gap-2">
                   <img :src="edit_icon" alt="edit_icon" />
@@ -304,8 +301,21 @@ import usa_flag from "@/assets/Images/flag_only/usa_flag.png";
 import phil_flag from "@/assets/Images/flag_only/flag philippines.png";
 import kenya_flag from "@/assets/Images/flag_only/kenya_flag.png";
 import lebanon_flag from "@/assets/Images/flag_only/lebanon_flag.png";
+import { useGlobalStore } from "@/stores/globalStore";
 
-import { ref, computed } from "vue";
+import { ref, computed ,isReactive, onMounted, onBeforeMount} from "vue";
+
+const store = useGlobalStore();
+
+const jobs = ref ([])
+
+
+onMounted( async () => {
+  await store.getJobs()
+  
+  jobs.value = store.jobs
+  
+})
 
 const currentPage = ref(1);
 const itemsPerPage = 3;
@@ -319,6 +329,7 @@ const totalPages = computed(() =>
 
 const getPaginatedData = computed(() => {
   const startIndex = (currentPage.value - 1) * itemsPerPage;
+  console.log(startIndex);
   return filteredData.value.slice(startIndex, startIndex + itemsPerPage);
 });
 
@@ -337,75 +348,18 @@ const nextPage = () => {
 const filteredData = computed(() => {
   const query = searchQuery.value.toLowerCase().trim();
   if (!query) {
-    return baseData.value;
+    return jobs.value;
   }
 
-  return baseData.value.filter((item) => {
-    const jobTitle = item.job_title.toLowerCase();
-    return jobTitle.includes(query);
+  return jobs.value.filter((item) => {
+    const name = item.name.toLowerCase();
+    return name.includes(query);
   });
 });
 
-const baseData = ref([
-  {
-    select: "Select",
-    job_title: "Customer Service Representative",
-    job_category: "Full-Time",
-    salary: "$25,000",
-    location: "USA",
-  },
-  {
-    select: "Select",
-    job_title: "Technical Support Specialist",
-    job_category: "Part-Time",
-    salary: "$20,000",
-    location: "Philippines",
-  },
-  {
-    select: "Select",
-    job_title: "Quality Assurance Analyst",
-    job_category: "Remote",
-    salary: "$30,000",
-    location: "Kenya",
-  },
-  {
-    select: "Select",
-    job_title: "Team Leader - BPO Operations",
-    job_category: "Full-Time",
-    salary: "$35,000",
-    location: "Lebanon",
-  },
-  {
-    select: "Select",
-    job_title: "Customer Service Representative",
-    job_category: "Full-Time",
-    salary: "$25,000",
-    location: "USA",
-  },
-  {
-    select: "Select",
-    job_title: "Technical Support Specialist",
-    job_category: "Part-Time",
-    salary: "$20,000",
-    location: "Philippines",
-  },
-  {
-    select: "Select",
-    job_title: "Quality Assurance Analyst",
-    job_category: "Remote",
-    salary: "$30,000",
-    location: "Kenya",
-  },
-  {
-    select: "Select",
-    job_title: "Team Leader - BPO Operations",
-    job_category: "Full-Time",
-    salary: "$35,000",
-    location: "Lebanon",
-  },
-]);
 
-const paginatedData = ref(baseData);
+
+const paginatedData = ref(jobs);
 </script>
 
 <style>
