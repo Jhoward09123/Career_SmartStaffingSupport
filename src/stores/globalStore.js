@@ -39,6 +39,14 @@ export const useGlobalStore = defineStore('global', () => {
         jobs.value = res.data.data
         
     }
+    async function createJob(form_data) {
+        await getToken()
+        console.log(form_data)
+        return form_data
+        const res = await axios.get('api/countries/'+id)
+        jobs.value = res.data.data
+        
+    }
   
     return { getJobs, state,jobs,getJobCategory, getJob, getCountry }
 })
