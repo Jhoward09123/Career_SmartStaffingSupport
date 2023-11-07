@@ -273,6 +273,8 @@ import add_btn_des from "@/assets/Images/Btn_icons/add_btn_descr.svg";
 import Side_panel from "@/components/Side_panel.vue";
 import { useGlobalStore } from "@/stores/globalStore";
 import { ref,onMounted } from "vue";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const store = useGlobalStore();
 
@@ -295,7 +297,14 @@ onMounted( async () => {
   state.value.job_categories = store.job_categories
   state.value.countries = store.countries
   state.value.contract_types = store.contract_types
-  
+
+  // const notify = () => {
+  //   toast("Wow so easy !", {
+  //       autoClose: 2000,
+  //     }); 
+  // }
+  // https://vue3-toastify.js-bridge.com/api/container.html
+  // notify();
 })
 
 const form_data = ref({
